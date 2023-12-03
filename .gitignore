@@ -38,3 +38,4 @@ next-env.d.ts
 # local
 kimyoondukdotcom.code-workspace
 **/.DS_Store
+app/about/page_temp.tsx

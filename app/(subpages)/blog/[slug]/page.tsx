@@ -3,6 +3,11 @@ import { notFound } from "next/navigation";
 import getPosts, { getPost } from "@/lib/get-posts";
 import PostBody from "@/mdx/post-body";
 
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return posts.map((post) => ({ slug: post!.slug }));
+}
+
 const BlogPost = async ({
   params,
 }: {

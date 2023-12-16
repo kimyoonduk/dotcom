@@ -42,9 +42,8 @@ export const mdxComponents: MDXComponents = {
     React.HTMLAttributes<HTMLElement>,
     HTMLPreElement
   >) => {
-    // TODO: extract title from children
     return (
-      <Code {...props} theme="material-default">
+      <Code {...props} theme="dark-plus">
         {children as any}
       </Code>
     );

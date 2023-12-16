@@ -50,7 +50,7 @@ export const mdxComponents: MDXComponents = {
     );
   },
   img: MDXImage as any,
-  // Image: NextImage as any,
+  Image: NextImage as any,
 
   // Note: MDXNote,
   //   icons

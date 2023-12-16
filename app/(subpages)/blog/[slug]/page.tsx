@@ -1,5 +1,7 @@
-import getPosts, { getPost } from "@/lib/get-posts";
 import { notFound } from "next/navigation";
+
+import getPosts, { getPost } from "@/lib/get-posts";
+import PostBody from "@/mdx/post-body";
 
 const BlogPost = async ({
   params,
@@ -10,6 +12,6 @@ const BlogPost = async ({
 }) => {
   const post = await getPost(params.slug);
   if (!post) return notFound();
-  return <>{post?.body}</>;
+  return <PostBody>{post?.body}</PostBody>;
 };
 export default BlogPost;

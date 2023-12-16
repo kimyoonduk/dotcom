@@ -1,4 +1,5 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { mdxComponents } from "./components";
 
 const PostBody = ({ children }: { children: string }) => {
   return (
@@ -21,7 +22,7 @@ const PostBody = ({ children }: { children: string }) => {
           // rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
         },
       }}
-      // components={mdxComponents}
+      components={mdxComponents}
     />
   );
 };

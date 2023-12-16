@@ -37,6 +37,9 @@ export const metadata: Metadata = {
     description: "Mostly tech stuff",
     // images: [],
   },
+  icons: {
+    shortcut: "/favicon.ico",
+  },
   robots: {
     index: true,
     follow: true,

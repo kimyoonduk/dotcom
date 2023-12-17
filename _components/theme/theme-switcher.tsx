@@ -45,7 +45,7 @@ const ThemeSwitcher = ({
         // <FadeIn>
         <>
           {activeTheme === "dark" ? (
-            <Moon size={iconSize} strokeWidth={strokeWidth || 2} />
+            <Moon size={iconSize} strokeWidth={strokeWidth || 1} />
           ) : (
             <Sun size={iconSize} strokeWidth={strokeWidth || 1} />
           )}

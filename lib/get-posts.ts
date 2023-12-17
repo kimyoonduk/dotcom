@@ -7,8 +7,13 @@ import { cache } from "react";
 type Post = {
   title: string;
   slug: string;
-  published: boolean;
+  date: string;
+  tags: string[];
+  description: string;
   body: string;
+  lastModified?: number;
+  views?: number;
+  href?: string;
 };
 
 export const getPosts = cache(async () => {

@@ -1,4 +1,4 @@
-import Header from "./_components/header";
+import Header from "../../_components/header";
 import type { ReactNode } from "react";
 
 const SubLayout = ({ children }: { children: ReactNode }) => {

@@ -1,5 +1,6 @@
 import { memo } from "react";
 import Link from "next/link";
+// import ThemeSwitcher from "../theme/theme-switcher";
 
 const links = [
   { href: "/about", label: "about" },
@@ -21,6 +22,7 @@ export const Header = ({ render, title }: Props) => {
             <Link href="/" className="btn btn-primary">
               Home
             </Link>
+            {/* <ThemeSwitcher hideTooltip /> */}
             <ul className="menu menu-horizontal md:ml-8">
               {links.map((link) => {
                 return (

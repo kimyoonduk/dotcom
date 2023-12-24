@@ -1,4 +1,12 @@
-const Blog = () => {
-  return <div>Blog</div>;
+import { PostListRSC } from "@/_components/posts-list/rsc";
+import { Suspense } from "react";
+
+const Blog = async () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PostListRSC paginate={true} />
+    </Suspense>
+  );
 };
+
 export default Blog;

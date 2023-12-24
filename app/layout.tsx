@@ -16,11 +16,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className}`}>
+        {/* update theme for tailwind */}
         <Script id="theme-detector">{`
           const theme = document.documentElement.style.colorScheme
           document.documentElement.classList.add(theme)
         `}</Script>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <main className="">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );

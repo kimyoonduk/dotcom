@@ -19,11 +19,15 @@ export const Header = ({ render, title }: Props) => {
       <div>
         <nav className="bg-base-300 py-4">
           <div className="navbar px-8 max-w-6xl mx-auto flex-col sm:flex-row">
-            <Link href="/" className="btn btn-primary">
-              Home
-            </Link>
-            <ThemeSwitcher hideTooltip />
             <ul className="menu menu-horizontal md:ml-8">
+              <li>
+                <Link href="/" className="btn btn-primary">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <ThemeSwitcher hideTooltip />
+              </li>
               {links.map((link) => {
                 return (
                   <li key={link.href}>

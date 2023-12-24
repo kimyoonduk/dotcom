@@ -8,4 +8,5 @@ export type Post = {
   lastModified?: number;
   views?: number;
   href?: string;
+  thumbnail?: string;
 };

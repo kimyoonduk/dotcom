@@ -19,7 +19,7 @@ const Posts = (props: Props) => {
 
   if ("skeleton" in props) {
     return (
-      <ul className="">
+      <ul className="max-w-main-content m-0 p-0">
         {[...Array(4)].map((_, i) => (
           <BlockEntry key={i} skeleton />
         ))}
@@ -30,7 +30,7 @@ const Posts = (props: Props) => {
   const { posts, paginate } = props;
 
   return (
-    <ul className="">
+    <ul className="max-w-main-content m-0 p-0">
       {posts.slice(0, paginate ? showMore : undefined).map((post) => {
         const date = new Date(post.date).toLocaleDateString("en-US", {
           month: "numeric",
@@ -43,6 +43,8 @@ const Posts = (props: Props) => {
             key={`post-item-${post.slug}`}
             href={`/blog/${post.slug}`}
             title={post.title}
+            description={post.description}
+            thumbnail={post.thumbnail ?? ""}
             date={new Date(date)}
             views={post.views}
           />
@@ -53,7 +55,7 @@ const Posts = (props: Props) => {
           onClick={() => {
             setShowMore(showMore + 4);
           }}
-          className=""
+          className="mt-2 w-full cursor-pointer text-primary-content bg-primary border-none py-2 px-4 outline-none"
         >
           Show More
         </button>

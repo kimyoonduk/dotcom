@@ -5,7 +5,7 @@ const SubLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <Header render={true} title={""} />
-      <div className="px-8 py-20 max-w-6xl mx-auto">{children}</div>
+      <div className="px-8 py-20 max-w-main-content mx-auto">{children}</div>
     </>
   );
 };

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 type Props =
   | {
@@ -9,6 +10,7 @@ type Props =
       date?: Date;
       views?: number;
       isThirdParty?: boolean;
+      thumbnail: string; // Ensure thumbnail is of type string
     }
   | {
       skeleton: true;
@@ -16,36 +18,40 @@ type Props =
 
 const BlockEntry = (props: Props) => {
   if ("skeleton" in props) {
-    return <li className="" />;
+    return <li className="flex flex-col p-4 skeleton mb-4 h-36" />;
   }
 
-  const { title, description, type, href, date, views } = props;
+  const { title, description, type, href, date, views, thumbnail } = props;
   return (
-    <li className="">
-      <Link href={href} title={description || title} className="">
-        {type && <div className="">{type}</div>}
-        {date && (
-          <div className="">
-            {date && (
-              <span className="">
-                {date.toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </span>
-            )}
-            {views ? (
-              <span className="">
-                {views.toLocaleString()} {views === 1 ? "view" : "views"}
-              </span>
-            ) : null}
-          </div>
-        )}
-        <h4 className="">{title}</h4>
-        {description && <p className="">{description}</p>}
-      </Link>
-    </li>
+    <div className="card card-side bg-base-100 hover:bg-base-200 card-compact ">
+      <figure className="w-1/4 max-h-48">
+        <Image
+          src={thumbnail}
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "auto", height: "100%" }}
+          alt=""
+        />
+      </figure>
+      <div className="card-body">
+        <h2 className="card-title">{title}</h2>
+        <div className="card-body">
+          {date && (
+            <span className="">
+              {date.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </span>
+          )}
+        </div>
+        <div className="card-body">
+          <p>{description}</p>
+        </div>
+      </div>
+    </div>
   );
 };
 

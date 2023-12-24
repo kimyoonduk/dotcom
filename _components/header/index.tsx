@@ -18,7 +18,7 @@ export const Header = ({ render, title }: Props) => {
     return (
       <div>
         <nav className="bg-base-300 py-4">
-          <div className="navbar px-8 max-w-6xl mx-auto flex-col sm:flex-row">
+          <div className="navbar px-0 max-w-main-content mx-auto flex-col sm:flex-row">
             <ul className="menu menu-horizontal md:ml-8">
               <li>
                 <Link href="/" className="">

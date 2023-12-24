@@ -10,12 +10,10 @@ import { PropsWithChildren, useEffect, useState } from "react";
 const ThemeSwitcher = ({
   className = "",
   iconSize = 24,
-  hideTooltip = false,
   strokeWidth,
 }: {
   className?: string;
   iconSize?: number;
-  hideTooltip?: boolean;
   strokeWidth?: number;
 }) => {
   const { theme: activeTheme, setTheme } = useTheme();
@@ -24,15 +22,6 @@ const ThemeSwitcher = ({
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  // const Wrapper = ({ children }: PropsWithChildren) =>
-  //   hideTooltip ? (
-  //     <>{children}</>
-  //   ) : (
-  //     <Tooltip text={activeTheme === "light" ? "Dark mode" : "Light mode"}>
-  //       {children}
-  //     </Tooltip>
-  //   );
 
   const toggleTheme = () => {
     // set daisyUI theme

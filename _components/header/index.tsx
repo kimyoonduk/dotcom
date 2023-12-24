@@ -21,12 +21,12 @@ export const Header = ({ render, title }: Props) => {
           <div className="navbar px-8 max-w-6xl mx-auto flex-col sm:flex-row">
             <ul className="menu menu-horizontal md:ml-8">
               <li>
-                <Link href="/" className="btn btn-primary">
+                <Link href="/" className="">
                   Home
                 </Link>
               </li>
               <li>
-                <ThemeSwitcher hideTooltip />
+                <ThemeSwitcher />
               </li>
               {links.map((link) => {
                 return (

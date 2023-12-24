@@ -4,17 +4,7 @@ import path from "path";
 import fs from "fs/promises";
 import { cache } from "react";
 
-type Post = {
-  title: string;
-  slug: string;
-  date: string;
-  tags: string[];
-  description: string;
-  body: string;
-  lastModified?: number;
-  views?: number;
-  href?: string;
-};
+import { Post } from "./types";
 
 export const getPosts = cache(async () => {
   const posts = await fs.readdir("./posts/");

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 import getPosts, { getPost } from "@/lib/get-posts";
-import PostBody from "@/mdx/post-body";
+import PostBody from "@/_components/mdx/post-body";
 
 export async function generateStaticParams() {
   const posts = await getPosts();

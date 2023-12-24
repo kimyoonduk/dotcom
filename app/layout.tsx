@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Script from "next/script";
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -13,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} dark:bg-gray-800`}>
+      <body className={`${inter.className}`}>
+        <Script id="theme-detector">{`
+          const theme = document.documentElement.style.colorScheme
+          document.documentElement.classList.add(theme)
+        `}</Script>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

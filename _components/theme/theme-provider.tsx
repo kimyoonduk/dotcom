@@ -9,10 +9,13 @@ export default function ThemeProvider({
 }) {
   return (
     <NextThemeProvider
-      enableSystem
-      enableColorScheme
-      defaultTheme="dark"
-      attribute="class"
+    // enableSystem
+    // enableColorScheme
+    // defaultTheme="dark"
+    // attribute="class"
+
+    /* ISSUE: flickering when manually setting themes */
+    // value={{ dark: "business" }}
     >
       {children}
     </NextThemeProvider>

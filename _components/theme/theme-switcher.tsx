@@ -34,10 +34,23 @@ const ThemeSwitcher = ({
   //     </Tooltip>
   //   );
 
+  const toggleTheme = () => {
+    // set daisyUI theme
+    setTheme(activeTheme === "light" ? "dark" : "light");
+
+    // set tailwind class on html element as backup
+    document.documentElement.classList.remove(
+      activeTheme === "light" ? "light" : "dark"
+    );
+    document.documentElement.classList.add(
+      activeTheme === "light" ? "dark" : "light"
+    );
+  };
+
   return (
     // <Wrapper>
     <button
-      onClick={() => setTheme(activeTheme === "light" ? "dark" : "light")}
+      onClick={toggleTheme}
       aria-label="Change the theme"
       // className={`${socialStyles.icon} ${className}`}
     >

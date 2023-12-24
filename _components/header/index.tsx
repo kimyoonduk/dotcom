@@ -25,9 +25,6 @@ export const Header = ({ render, title }: Props) => {
                   Home
                 </Link>
               </li>
-              <li>
-                <ThemeSwitcher />
-              </li>
               {links.map((link) => {
                 return (
                   <li key={link.href}>
@@ -38,6 +35,9 @@ export const Header = ({ render, title }: Props) => {
                 );
               })}
             </ul>
+            <div className="navbar-end">
+              <ThemeSwitcher />
+            </div>
           </div>
         </nav>
       </div>

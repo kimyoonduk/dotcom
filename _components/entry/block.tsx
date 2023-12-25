@@ -26,16 +26,6 @@ const BlockEntry = (props: Props) => {
     props;
   return (
     <div className="card card-side bg-base-100 hover:bg-base-200 card-compact ">
-      <figure className="w-1/4 max-h-48">
-        <Image
-          src={thumbnail}
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: "auto", height: "100%" }}
-          alt=""
-        />
-      </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
         <div className="card-body">
@@ -64,6 +54,17 @@ const BlockEntry = (props: Props) => {
           <p>{description}</p>
         </div>
       </div>
+
+      <figure className="w-1/4 max-h-48">
+        <Image
+          src={thumbnail}
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "auto", height: "100%" }}
+          alt=""
+        />
+      </figure>
     </div>
   );
 };

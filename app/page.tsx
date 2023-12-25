@@ -1,3 +1,6 @@
+import { Suspense } from "react";
+import { PostListRSC } from "@/_components/posts-list/rsc";
+
 import Header from "@/_components/header";
 
 const links = [
@@ -10,7 +13,11 @@ export default function Home() {
   return (
     <div className="">
       <Header render={true} home={true} links={links} />
-      <div className=""></div>
+      <div className="px-8 py-20 max-w-main-content mx-auto">
+        <Suspense fallback={<div>Loading...</div>}>
+          <PostListRSC paginate={true} />
+        </Suspense>
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { memo } from "react";
 import Link from "next/link";
 import ThemeSwitcher from "../theme/theme-switcher";
 
-import { Menu, Github } from "../icons";
+import { Menu, Github, Linkedin, Twitter, Mail } from "../icons";
 
 type Props = {
   render: boolean;
@@ -52,11 +52,20 @@ export const Header = ({ render, home, links }: Props) => {
 
   const iconLinkWrapper = (icon: JSX.Element, href: string) => {
     return (
-      <div className="">
-        <Link href={href}>{icon}</Link>
+      <div className="px-3">
+        <Link href={href} target="_blank" rel="noopener noreferrer">
+          {icon}
+        </Link>
       </div>
     );
   };
+
+  const iconLinkList = [
+    { icon: <Github />, href: "https://www.github.com/kimyoonduk" },
+    { icon: <Linkedin />, href: "https://www.linkedin.com/in/kimyoonduk" },
+    { icon: <Twitter />, href: "https://www.twitter.com/kimyoonduk" },
+    { icon: <Mail />, href: "mailto:yd@kimyoonduk.com" },
+  ];
 
   if (render) {
     return (
@@ -69,7 +78,11 @@ export const Header = ({ render, home, links }: Props) => {
               <div className="px-2 hidden lg:flex">{navCenter}</div>
             </div>
             <div className="navbar-end">
-              {iconLinkWrapper(<Github />, "https://www.github.com/kimyoonduk")}
+              {home &&
+                iconLinkList.map((iconLink) => {
+                  // If home, render icon links on the right
+                  return iconLinkWrapper(iconLink.icon, iconLink.href);
+                })}
               <ThemeSwitcher />
             </div>
           </div>

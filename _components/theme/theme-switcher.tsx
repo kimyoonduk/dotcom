@@ -37,29 +37,29 @@ const ThemeSwitcher = ({
   };
 
   return (
-    // <Wrapper>
-    <button
-      onClick={toggleTheme}
-      aria-label="Change the theme"
-      // className={`${socialStyles.icon} ${className}`}
-    >
-      {mounted ? (
-        // <FadeIn>
-        <>
-          {activeTheme === "dark" ? (
+    <div className="pl-8">
+      <button
+        onClick={toggleTheme}
+        aria-label="Change the theme"
+        // className={`${socialStyles.icon} ${className}`}
+      >
+        {mounted ? (
+          // <FadeIn>
+          <>
+            {activeTheme === "dark" ? (
+              <Sun size={30} strokeWidth={strokeWidth || 2} />
+            ) : (
+              <Sun size={30} strokeWidth={strokeWidth || 2} />
+            )}
+          </>
+        ) : (
+          // </FadeIn>
+          <span style={{ opacity: 0 }} aria-hidden>
             <Sun size={30} strokeWidth={strokeWidth || 2} />
-          ) : (
-            <Sun size={30} strokeWidth={strokeWidth || 2} />
-          )}
-        </>
-      ) : (
-        // </FadeIn>
-        <span style={{ opacity: 0 }} aria-hidden>
-          <Sun size={30} strokeWidth={strokeWidth || 2} />
-        </span>
-      )}
-    </button>
-    // </Wrapper>
+          </span>
+        )}
+      </button>
+    </div>
   );
 };
 

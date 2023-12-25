@@ -1,6 +1,4 @@
 const IconWrapper = (icon: string) => {
-  const svgPath = `<path d="${icon}"/>`;
-
   const Icon = ({
     size = 28,
     color = "currentColor",
@@ -15,7 +13,7 @@ const IconWrapper = (icon: string) => {
         strokeWidth={strokeWidth}
         fill={fill ? fill : "none"}
         stroke={fill === "none" ? color : "currentColor"}
-        dangerouslySetInnerHTML={{ __html: svgPath }}
+        dangerouslySetInnerHTML={{ __html: icon }}
         aria-hidden="true"
       />
     );

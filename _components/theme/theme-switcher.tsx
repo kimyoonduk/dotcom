@@ -47,25 +47,15 @@ const ThemeSwitcher = ({
         // <FadeIn>
         <>
           {activeTheme === "dark" ? (
-            <Sun
-              size={33}
-              strokeWidth={strokeWidth || 2}
-              fill="rgb(229, 231, 235)"
-              color="oklch(0.746477 0.0216 264.436)"
-            />
+            <Sun size={30} strokeWidth={strokeWidth || 2} />
           ) : (
-            <Sun
-              size={33}
-              strokeWidth={strokeWidth || 2}
-              fill="oklch(0.211484 0.01165 254.088)"
-              color="oklch(0.313815 0.021108 254.139)"
-            />
+            <Sun size={30} strokeWidth={strokeWidth || 2} />
           )}
         </>
       ) : (
         // </FadeIn>
         <span style={{ opacity: 0 }} aria-hidden>
-          <Moon size={iconSize} />
+          <Sun size={30} strokeWidth={strokeWidth || 2} />
         </span>
       )}
     </button>

@@ -50,6 +50,14 @@ export const Header = ({ render, home, links }: Props) => {
     </ul>
   );
 
+  const iconLinkWrapper = (icon: JSX.Element, href: string) => {
+    return (
+      <div className="">
+        <Link href={href}>{icon}</Link>
+      </div>
+    );
+  };
+
   if (render) {
     return (
       <div>
@@ -61,7 +69,7 @@ export const Header = ({ render, home, links }: Props) => {
               <div className="px-2 hidden lg:flex">{navCenter}</div>
             </div>
             <div className="navbar-end">
-              <Github />
+              {iconLinkWrapper(<Github />, "https://www.github.com/kimyoonduk")}
               <ThemeSwitcher />
             </div>
           </div>

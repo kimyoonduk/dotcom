@@ -1,7 +1,7 @@
 "use client";
 
 // import FadeIn from "@components/fade-in";
-import { Sun, Moon } from "../icons";
+import { Sun } from "../icons";
 // import socialStyles from "@components/socials/socials.module.css";
 // import Tooltip from "@components/tooltip";
 import { useTheme } from "next-themes";

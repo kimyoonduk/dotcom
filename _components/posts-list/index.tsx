@@ -47,6 +47,7 @@ const Posts = (props: Props) => {
             thumbnail={post.thumbnail ?? ""}
             date={new Date(date)}
             views={post.views}
+            tags={post.tags}
           />
         );
       })}

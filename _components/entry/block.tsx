@@ -11,6 +11,7 @@ type Props =
       views?: number;
       isThirdParty?: boolean;
       thumbnail: string; // Ensure thumbnail is of type string
+      tags?: string[];
     }
   | {
       skeleton: true;
@@ -21,7 +22,8 @@ const BlockEntry = (props: Props) => {
     return <li className="flex flex-col p-4 skeleton mb-4 h-36" />;
   }
 
-  const { title, description, type, href, date, views, thumbnail } = props;
+  const { title, description, type, href, date, views, thumbnail, tags } =
+    props;
   return (
     <div className="card card-side bg-base-100 hover:bg-base-200 card-compact ">
       <figure className="w-1/4 max-h-48">
@@ -45,6 +47,17 @@ const BlockEntry = (props: Props) => {
                 year: "numeric",
               })}
             </span>
+          )}
+        </div>
+        <div className="card-body">
+          {tags && ( // If tags exist, render them
+            <div className="flex flex-row">
+              {tags.map((tag) => (
+                <span className="badge badge-outline badge-accent mr-2">
+                  {tag}
+                </span>
+              ))}
+            </div>
           )}
         </div>
         <div className="card-body">

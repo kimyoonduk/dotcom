@@ -14,7 +14,7 @@ const About = () => {
       <ul>
         <li>
           I develop speech analytics systems for patients with neurodegenerative
-          symptoms.
+          disorders.
         </li>
         <li>Studied business in grad school before dropping out.</li>
         <li>
@@ -22,12 +22,8 @@ const About = () => {
           Korea. Ask me for suggestions on places to go.
         </li>
         <li>
-          Have a backlog of personal projects with extremely niche usecases.
-          Might share some of them here.
-        </li>
-        <li>
-          This page was built in Next.js with Tailwind, DaisyUI components, and
-          icons from Feather and SVG Repo.
+          This website was built in Next.js with Tailwind, DaisyUI components,
+          and icons from Feather and SVG Repo. More info here.
         </li>
       </ul>
       <p></p>

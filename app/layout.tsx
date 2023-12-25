@@ -31,17 +31,17 @@ export default function RootLayout({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | YD Kim",
-    default: "YD Kim",
+    template: "%s | kimYoonDuk",
+    default: "kimYoonDuk",
   },
   description:
     "Posts on things no one cares about and answers to questions no one asked.",
   keywords:
     "Tech Blog, Machine Learning, Recommendation Algorithms, Web Development, Language Models, Blockchain",
   openGraph: {
-    title: "YD Kim",
+    title: "kimYoonDuk",
     url: "https://kimyoonduk.com",
-    siteName: "YD Kim's Blog",
+    siteName: "kimYoonDuk",
     locale: "en_US",
     type: "website",
     description: "Mostly tech stuff",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@kimyoonduk",
     creator: "@kimyoonduk",
-    title: "YD Kim",
+    title: "kimYoonDuk",
     description: "Mostly tech stuff",
     // images: [],
   },

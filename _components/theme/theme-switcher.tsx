@@ -47,9 +47,19 @@ const ThemeSwitcher = ({
         // <FadeIn>
         <>
           {activeTheme === "dark" ? (
-            <Moon size={iconSize} strokeWidth={strokeWidth || 1} />
+            <Sun
+              size={33}
+              strokeWidth={strokeWidth || 2}
+              fill="rgb(229, 231, 235)"
+              color="oklch(0.746477 0.0216 264.436)"
+            />
           ) : (
-            <Sun size={iconSize} strokeWidth={strokeWidth || 1} />
+            <Sun
+              size={33}
+              strokeWidth={strokeWidth || 2}
+              fill="oklch(0.211484 0.01165 254.088)"
+              color="oklch(0.313815 0.021108 254.139)"
+            />
           )}
         </>
       ) : (

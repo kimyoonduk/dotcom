@@ -9,7 +9,7 @@ import { PropsWithChildren, useEffect, useState } from "react";
 
 const ThemeSwitcher = ({
   className = "",
-  iconSize = 24,
+  iconSize = 28,
   strokeWidth,
 }: {
   className?: string;
@@ -37,7 +37,7 @@ const ThemeSwitcher = ({
   };
 
   return (
-    <div className="pl-8">
+    <div className="px-2">
       <button
         onClick={toggleTheme}
         aria-label="Change the theme"
@@ -47,15 +47,15 @@ const ThemeSwitcher = ({
           // <FadeIn>
           <>
             {activeTheme === "dark" ? (
-              <Sun size={30} strokeWidth={strokeWidth || 2} />
+              <Sun size={iconSize} strokeWidth={strokeWidth || 2} />
             ) : (
-              <Sun size={30} strokeWidth={strokeWidth || 2} />
+              <Sun size={iconSize} strokeWidth={strokeWidth || 2} />
             )}
           </>
         ) : (
           // </FadeIn>
           <span style={{ opacity: 0 }} aria-hidden>
-            <Sun size={30} strokeWidth={strokeWidth || 2} />
+            <Sun size={iconSize} strokeWidth={strokeWidth || 2} />
           </span>
         )}
       </button>

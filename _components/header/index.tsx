@@ -37,28 +37,20 @@ export const Header = ({ render, home, links }: Props) => {
   const titleLink = home ? title : <Link href="/">{title}</Link>;
 
   const navCenter = (
-    <ul className="menu menu-horizontal px-1">
-      {links.map((link) => {
-        return (
-          <li key={link.href} className="px-0.5">
-            <Link href={link.href} className="capitalize">
-              {link.label}
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+    <div className="px-2 hidden lg:flex">
+      <ul className="menu menu-horizontal px-1">
+        {links.map((link) => {
+          return (
+            <li key={link.href} className="px-0.5">
+              <Link href={link.href} className="capitalize font-medium">
+                {link.label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
-
-  const iconLinkWrapper = (icon: JSX.Element, href: string) => {
-    return (
-      <div className="px-3">
-        <Link href={href} target="_blank" rel="noopener noreferrer">
-          {icon}
-        </Link>
-      </div>
-    );
-  };
 
   const iconLinkList = [
     { icon: <Github />, href: "https://www.github.com/kimyoonduk" },
@@ -67,22 +59,30 @@ export const Header = ({ render, home, links }: Props) => {
     { icon: <Mail />, href: "mailto:yd@kimyoonduk.com" },
   ];
 
+  const navEnd = home && (
+    <ul className="menu menu-horizontal menu-sm pr-4 hidden sm:flex">
+      {iconLinkList.map((iconLink) => (
+        <li key={iconLink.href} className="px-0.5 ">
+          <Link href={iconLink.href} target="_blank" rel="noopener noreferrer">
+            {iconLink.icon}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+
   if (render) {
     return (
       <div>
-        <nav className="bg-base-300 py-4 px-4">
+        <nav className="py-4 px-4">
           <div className="navbar px-0 max-w-main-content mx-auto">
             <div className="navbar-start">
               {dropdown}
               {titleLink}
-              <div className="px-2 hidden lg:flex">{navCenter}</div>
+              {navCenter}
             </div>
             <div className="navbar-end">
-              {home &&
-                iconLinkList.map((iconLink) => {
-                  // If home, render icon links on the right
-                  return iconLinkWrapper(iconLink.icon, iconLink.href);
-                })}
+              {navEnd}
               <ThemeSwitcher />
             </div>
           </div>

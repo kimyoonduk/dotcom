@@ -9,6 +9,7 @@ type Props =
   | {
       posts: Post[];
       paginate?: boolean;
+      displayCount?: number;
     }
   | {
       skeleton: true;
@@ -27,11 +28,13 @@ const Posts = (props: Props) => {
     );
   }
 
-  const { posts, paginate } = props;
+  const { posts, paginate, displayCount } = props;
+
+  const displayedPosts = posts.slice(0, displayCount ?? posts.length);
 
   return (
     <ul className="max-w-main-content m-0 p-0">
-      {posts.slice(0, paginate ? showMore : undefined).map((post) => {
+      {displayedPosts.slice(0, paginate ? showMore : undefined).map((post) => {
         const date = new Date(post.date).toLocaleDateString("en-US", {
           month: "numeric",
           day: "numeric",
@@ -51,7 +54,7 @@ const Posts = (props: Props) => {
           />
         );
       })}
-      {paginate && showMore < posts.length && (
+      {paginate && showMore < displayedPosts.length && (
         <button
           onClick={() => {
             setShowMore(showMore + 4);

@@ -15,7 +15,7 @@ export default function Home() {
       <Header render={true} home={true} links={links} />
       <div className="px-8 py-20 max-w-main-content mx-auto">
         <Suspense fallback={<div>Loading...</div>}>
-          <PostListRSC paginate={true} />
+          <PostListRSC paginate={true} displayCount={3} />
         </Suspense>
       </div>
     </div>

@@ -30,7 +30,9 @@ const ProjectEntry = ({
       <div className="card-body">
         <h2 className="card-title">
           {title}
-          <IconLink iconComponent={<ExtLink size={18} />} href={href} />
+          {href !== "" && (
+            <IconLink iconComponent={<ExtLink size={18} />} href={href} />
+          )}
           {gitUrl && (
             <IconLink iconComponent={<Github size={18} />} href={gitUrl} />
           )}

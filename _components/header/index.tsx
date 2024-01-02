@@ -57,7 +57,7 @@ export const Header = ({ render, home, links }: Props) => {
     { icon: <Github />, href: "https://www.github.com/kimyoonduk" },
     { icon: <Linkedin />, href: "https://www.linkedin.com/in/kimyoonduk" },
     { icon: <Twitter />, href: "https://www.twitter.com/kimyoonduk" },
-    { icon: <Mail />, href: "mailto:yd@kimyoonduk.com" },
+    { icon: <Mail />, href: "/contact" },
   ];
 
   const navEnd = home && (

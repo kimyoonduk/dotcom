@@ -26,6 +26,7 @@
 
 ## Deployment
 
+- [ ] github readme
 - [ ] vercel or aws
 - [ ] headless cms?
 

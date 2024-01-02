@@ -17,10 +17,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className}`}>
         {/* update theme for tailwind */}
-        <Script id="theme-detector">{`
+        {/* <Script id="theme-detector">{`
           const theme = document.documentElement.style.colorScheme
           document.documentElement.classList.add(theme)
-        `}</Script>
+        `}</Script> */}
         <ThemeProvider>
           <main className="">{children}</main>
         </ThemeProvider>

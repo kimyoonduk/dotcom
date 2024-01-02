@@ -15,7 +15,7 @@ const config: Config = {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["light", "business", "bumblebee"],
+    themes: ["business", "bumblebee", "corporate"],
     darkTheme: "business",
     // lightTheme: "bumblebee",
   },

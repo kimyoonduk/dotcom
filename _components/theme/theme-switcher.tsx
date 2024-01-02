@@ -25,14 +25,14 @@ const ThemeSwitcher = ({
 
   const toggleTheme = () => {
     // set daisyUI theme
-    setTheme(activeTheme === "light" ? "dark" : "light");
+    setTheme(activeTheme === "corporate" ? "dark" : "corporate");
 
     // set tailwind class on html element as backup
     document.documentElement.classList.remove(
-      activeTheme === "light" ? "light" : "dark"
+      activeTheme === "corporate" ? "corporate" : "dark"
     );
     document.documentElement.classList.add(
-      activeTheme === "light" ? "dark" : "light"
+      activeTheme === "corporate" ? "dark" : "corporate"
     );
   };
 

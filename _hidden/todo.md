@@ -16,6 +16,7 @@
   - styling for link menu
 - [ ] landing page
 - [ ] favicon
+- [ ] clean up commented and unused sections from components
 
 ## Posts
 

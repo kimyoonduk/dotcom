@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/_components/link";
 import ProjectEntry from "@/_components/entry/project-entry";
 
 import type { Project } from "@/lib/types";

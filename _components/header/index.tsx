@@ -1,5 +1,5 @@
 import { memo } from "react";
-import Link from "next/link";
+import Link from "@/_components/link";
 import ThemeSwitcher from "../theme/theme-switcher";
 import IconLink from "../theme/icon-link";
 

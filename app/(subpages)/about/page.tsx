@@ -1,5 +1,6 @@
 import { Github, Linkedin, Twitter, Mail } from "@/_components/icons";
 import IconLink from "@/_components/theme/icon-link";
+import Link from "@/_components/link";
 
 const iconList = [
   { icon: <Github />, href: "https://www.github.com/kimyoonduk" },
@@ -9,9 +10,9 @@ const iconList = [
 ];
 
 const linkArray = (
-  <ul className="menu menu-horizontal menu-sm pr-4 hidden sm:flex">
+  <ul className="menu-horizontal menu-md px-0 py-2 md:px-2 md:py-0 md:menu md:mx-auto">
     {iconList.map((iconObj) => (
-      <li key={iconObj.href} className="px-0.5">
+      <li key={iconObj.href} className="px-2 md:px-0.5 mx-auto pb-2">
         <IconLink iconComponent={iconObj.icon} href={iconObj.href} />
       </li>
     ))}
@@ -26,28 +27,41 @@ export const metadata = {
   },
 };
 
+const homepageRepoUrl = "https://github.com/kimyoonduk/kimyoonduk.com";
+
 const About = () => {
   return (
-    <div>
-      <ul>
-        <li>
+    <div className="flex flex-col md:flex-row-reverse">
+      <div className="md:w-5/6 md:ml-auto px-2">
+        <p>
           I develop speech analytics systems for patients with neurodegenerative
           disorders.
-        </li>
-        <li>Studied business in grad school before dropping out.</li>
-        <li>
+        </p>
+        <p>
+          Studied computer science and business in grad school before dropping
+          out.
+        </p>
+        <p>
           Wrote an itinerary recommendation engine for a travel startup in
-          Korea. Ask me for suggestions on places to go.
-        </li>
-        <li>
+          Korea.
+        </p>
+        <p>
+          <Link href="/contact" highlight={true}>
+            Message me
+          </Link>{" "}
+          for suggestions on places to go.
+        </p>
+        <p className="mt-4">
           This website was built in Next.js with Tailwind, DaisyUI components,
-          and icons from Feather and SVG Repo. More info here.
-        </li>
-      </ul>
-      <p></p>
-      <p></p>
-
-      <div>{linkArray}</div>
+          and icons from Feather and SVG Repo.{" "}
+          <Link href={homepageRepoUrl} highlight={true}>
+            More info here.
+          </Link>
+        </p>
+      </div>
+      <div className="w-1/2 md:w-1/6">
+        <div className="flex flex-col md:flex-row">{linkArray}</div>
+      </div>
     </div>
   );
 };

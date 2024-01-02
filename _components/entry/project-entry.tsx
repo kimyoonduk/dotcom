@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/_components/link";
 import { ExtLink, Github } from "../icons";
 import IconLink from "../theme/icon-link";
 

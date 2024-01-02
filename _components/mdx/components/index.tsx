@@ -1,6 +1,6 @@
 import { MDXComponents } from "mdx/types";
 import NextImage from "next/image";
-import Link from "next/link";
+import Link from "@/_components/link";
 
 import { Code } from "bright";
 import { Tweet } from "react-tweet";

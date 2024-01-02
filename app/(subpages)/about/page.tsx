@@ -10,7 +10,7 @@ const iconList = [
 ];
 
 const linkArray = (
-  <ul className="menu-horizontal menu-md px-0 py-2 md:px-2 md:py-0 md:menu md:mx-auto">
+  <ul className="menu-horizontal menu-md px-0 py-2 md:px-0 md:py-0 md:menu md:mx-auto">
     {iconList.map((iconObj) => (
       <li key={iconObj.href} className="px-2 md:px-0.5 mx-auto pb-2">
         <IconLink iconComponent={iconObj.icon} href={iconObj.href} />

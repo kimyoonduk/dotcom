@@ -73,8 +73,8 @@ export const Header = ({ render, home, links }: Props) => {
   if (render) {
     return (
       <div>
-        <nav className="py-4 px-4">
-          <div className="navbar px-0 max-w-main-content mx-auto">
+        <nav className="py-2">
+          <div className="navbar max-w-main-content px-6 mx-auto">
             <div className="navbar-start">
               {dropdown}
               {titleLink}

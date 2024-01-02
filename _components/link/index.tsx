@@ -13,7 +13,7 @@ type Props = LinkProps & {
   // tabIndex?: number
 };
 
-const linkStyle = "link-primary link-hover";
+const linkStyle = "link-info link-hover";
 
 const Link = ({
   external,

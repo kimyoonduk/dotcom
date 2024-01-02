@@ -20,5 +20,6 @@ const config: Config = {
     // lightTheme: "bumblebee",
   },
   darkMode: "class",
+  mode: "jit",
 };
 export default config;

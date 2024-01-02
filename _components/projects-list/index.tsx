@@ -34,11 +34,6 @@ const ProjectList = ({
           />
         );
       })}
-      {count > 0 && count < projects.length && (
-        <li>
-          See some more on <Link href="/projects"> this page</Link>
-        </li>
-      )}
     </ul>
   );
 };

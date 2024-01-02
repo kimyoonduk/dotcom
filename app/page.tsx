@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="">
       <Header render={true} home={true} links={links} />
-      <div className="px-8 py-20 max-w-main-content mx-auto">
+      <div className="page-body">
         <div>Thanks for visiting. Have a wonderful evening.</div>
         <h2>Recent Posts</h2>
         <Suspense fallback={<div>Loading...</div>}>

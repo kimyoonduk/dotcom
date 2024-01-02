@@ -19,20 +19,23 @@ const ThemeSwitcher = ({
   const { theme: activeTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  const lightTheme = "corporate";
+  // const lightTheme = "bumblebee";
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
   const toggleTheme = () => {
     // set daisyUI theme
-    setTheme(activeTheme === "corporate" ? "dark" : "corporate");
+    setTheme(activeTheme === lightTheme ? "dark" : lightTheme);
 
     // set tailwind class on html element as backup
     document.documentElement.classList.remove(
-      activeTheme === "corporate" ? "corporate" : "dark"
+      activeTheme === lightTheme ? lightTheme : "dark"
     );
     document.documentElement.classList.add(
-      activeTheme === "corporate" ? "dark" : "corporate"
+      activeTheme === lightTheme ? "dark" : lightTheme
     );
   };
 

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { Post } from "@/lib/types";
 
-import BlockEntry from "@/_components/entry/block";
+import BlockEntry from "@/_components/entry/block-entry";
 
 type Props =
   | {

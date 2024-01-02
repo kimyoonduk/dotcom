@@ -10,7 +10,7 @@ type Props =
       date?: Date;
       views?: number;
       isThirdParty?: boolean;
-      thumbnail: string; // Ensure thumbnail is of type string
+      thumbnail?: string; // Ensure thumbnail is of type string
       tags?: string[];
     }
   | {
@@ -19,7 +19,7 @@ type Props =
 
 const BlockEntry = (props: Props) => {
   if ("skeleton" in props) {
-    return <li className="flex flex-col p-4 skeleton mb-4 h-36" />;
+    return <div className="flex flex-col p-4 skeleton mb-4 h-36" />;
   }
 
   const { title, description, type, href, date, views, thumbnail, tags } =
@@ -43,7 +43,10 @@ const BlockEntry = (props: Props) => {
           {tags && ( // If tags exist, render them
             <div className="flex flex-row">
               {tags.map((tag) => (
-                <span className="badge badge-outline badge-accent mr-2">
+                <span
+                  className="badge badge-outline badge-accent mr-2"
+                  key={tag}
+                >
                   {tag}
                 </span>
               ))}
@@ -54,18 +57,20 @@ const BlockEntry = (props: Props) => {
           <p>{description}</p>
         </div>
       </div>
-      <div className="w-1/4 max-h-48 hidden md:flex">
-        <figure className="">
-          <Image
-            src={thumbnail}
-            width={0}
-            height={0}
-            sizes="100vw"
-            style={{ width: "auto", height: "100%" }}
-            alt=""
-          />
-        </figure>
-      </div>
+      {thumbnail && (
+        <div className="w-1/4 max-h-48 hidden md:flex">
+          <figure className="">
+            <Image
+              src={thumbnail}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "auto", height: "100%" }}
+              alt=""
+            />
+          </figure>
+        </div>
+      )}
     </div>
   );
 };

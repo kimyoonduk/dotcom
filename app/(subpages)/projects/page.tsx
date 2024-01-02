@@ -1,17 +1,19 @@
-// import Link from "next/link";
+import ProjectList from "@/_components/projects-list";
+import { getProjects } from "@/lib/get-projects";
 
-const Projects = () => {
+export const metadata = {
+  title: "Projects",
+  description: "List of projects",
+  alternates: {
+    canonical: "https://kimyoonduk.com/projects",
+  },
+};
+
+const Projects = async () => {
+  const projects = await getProjects();
+
   return (
-    <div>
-      <ul>
-        <li>bullet 1</li>
-        <li>bullet 2</li>
-        <li>bullet 3</li>
-        <li>bullet 4</li>
-      </ul>
-      <p></p>
-      <p></p>
-    </div>
+    <ProjectList showYears={true} count={projects.length} projects={projects} />
   );
 };
 export default Projects;

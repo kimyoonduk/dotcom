@@ -14,6 +14,8 @@ export default function Home() {
     <div className="">
       <Header render={true} home={true} links={links} />
       <div className="px-8 py-20 max-w-main-content mx-auto">
+        <div>Thanks for visiting. Have a wonderful evening.</div>
+        <h2>Recent Posts</h2>
         <Suspense fallback={<div>Loading...</div>}>
           <PostListRSC paginate={true} displayCount={3} />
         </Suspense>

@@ -8,7 +8,7 @@ const iconList = [
   { icon: <Mail />, href: "/contact" },
 ];
 
-const navEnd = (
+const linkArray = (
   <ul className="menu menu-horizontal menu-sm pr-4 hidden sm:flex">
     {iconList.map((iconObj) => (
       <li key={iconObj.href} className="px-0.5">
@@ -47,7 +47,7 @@ const About = () => {
       <p></p>
       <p></p>
 
-      <div></div>
+      <div>{linkArray}</div>
     </div>
   );
 };

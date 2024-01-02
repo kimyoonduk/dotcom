@@ -1,5 +1,4 @@
 import Header from "../../_components/header";
-import type { ReactNode } from "react";
 
 const links = [
   { href: "/about", label: "about" },
@@ -7,7 +6,7 @@ const links = [
   { href: "/projects", label: "projects" },
 ];
 
-const SubLayout = ({ children }: { children: ReactNode }) => {
+const SubLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Header render={true} links={links} home={false} />

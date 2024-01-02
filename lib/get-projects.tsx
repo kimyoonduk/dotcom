@@ -83,6 +83,7 @@ export const getProjects = cache(async (): Promise<Project[]> => {
         return {
           ...proj,
           stars: stargazers_count,
+          gitUrl: gitUrl,
         };
       }
       return proj;

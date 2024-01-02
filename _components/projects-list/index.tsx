@@ -2,7 +2,6 @@ import Link from "next/link";
 import ProjectEntry from "@/_components/entry/project-entry";
 
 import type { Project } from "@/lib/types";
-// import { Star } from '@components/icons'
 
 type Props = {
   count: number;
@@ -31,6 +30,7 @@ const ProjectList = ({
             description={e.description}
             role={e.role}
             stars={e.stars}
+            gitUrl={e.gitUrl}
           />
         );
       })}

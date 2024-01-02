@@ -1,6 +1,7 @@
 import { memo } from "react";
 import Link from "next/link";
 import ThemeSwitcher from "../theme/theme-switcher";
+import IconLink from "../theme/icon-link";
 
 import { Menu, Github, Linkedin, Twitter, Mail } from "../icons";
 
@@ -52,7 +53,7 @@ export const Header = ({ render, home, links }: Props) => {
     </div>
   );
 
-  const iconLinkList = [
+  const iconList = [
     { icon: <Github />, href: "https://www.github.com/kimyoonduk" },
     { icon: <Linkedin />, href: "https://www.linkedin.com/in/kimyoonduk" },
     { icon: <Twitter />, href: "https://www.twitter.com/kimyoonduk" },
@@ -61,11 +62,9 @@ export const Header = ({ render, home, links }: Props) => {
 
   const navEnd = home && (
     <ul className="menu menu-horizontal menu-sm pr-4 hidden sm:flex">
-      {iconLinkList.map((iconLink) => (
-        <li key={iconLink.href} className="px-0.5 ">
-          <Link href={iconLink.href} target="_blank" rel="noopener noreferrer">
-            {iconLink.icon}
-          </Link>
+      {iconList.map((iconObj) => (
+        <li key={iconObj.href} className="px-0.5">
+          <IconLink iconComponent={iconObj.icon} href={iconObj.href} />
         </li>
       ))}
     </ul>

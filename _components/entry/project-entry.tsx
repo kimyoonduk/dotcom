@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ExtLink, Github } from "../icons";
+import IconLink from "../theme/icon-link";
 
 type Props = {
   href: string;
@@ -8,6 +10,7 @@ type Props = {
   years: string[];
   showYears: boolean;
   stars?: number;
+  gitUrl?: string;
 };
 
 const ProjectEntry = ({
@@ -18,13 +21,20 @@ const ProjectEntry = ({
   years,
   showYears = true,
   stars,
+  gitUrl,
 }: Props) => {
   const tags = ["temp"];
 
   return (
     <div className="card md:card-side bg-base-100 hover:bg-base-200 card-compact rounded-none">
       <div className="card-body">
-        <h2 className="card-title">{title}</h2>
+        <h2 className="card-title">
+          {title}
+          <IconLink iconComponent={<ExtLink size={18} />} href={href} />
+          {gitUrl && (
+            <IconLink iconComponent={<Github size={18} />} href={gitUrl} />
+          )}
+        </h2>
         <div className="card-body">
           {showYears && (
             <span className="text-sm">

@@ -2,7 +2,7 @@
 
 ## Styling
 
-- entry cards
+- [ ] entry cards
   - blog
     - card should route to individual pages
   - projects
@@ -11,32 +11,32 @@
     - remove hover effects
   - image section
     - figure out (ha) a better design
-- about page
+- [ ] about page
   - rewrite?
   - styling for link menu
-- landing page
-- favicon
+- [ ] landing page
+- [ ] favicon
 
 ## Posts
 
-- finish up first post
+- [ ] finish up first post
   - credit maxleiter.com and john-smilga
-- 2023 review
-- jot down ideas for new posts
+- [ ] 2023 review
+- [ ] jot down ideas for new posts
 
 ## Deployment
 
-- vercel or aws
-- headless cms?
+- [ ] vercel or aws
+- [ ] headless cms?
 
 ## New Features
 
-- web analytics: umami
-- RSS
-- twitter api integration?
+- [ ] web analytics: umami
+- [ ] RSS
+- [ ] twitter api integration?
 
 ## Minor Stuff
 
-- update theme
+- [ ] update theme
 
 ## Done

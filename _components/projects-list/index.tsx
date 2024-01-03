@@ -31,6 +31,7 @@ const ProjectList = ({
             role={e.role}
             stars={e.stars}
             gitUrl={e.gitUrl}
+            tech={e.tech}
           />
         );
       })}

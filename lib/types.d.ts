@@ -19,4 +19,6 @@ export type Project = {
   years: string[];
   stars?: number;
   gitUrl?: string;
+  tech?: string[];
+  showYears?: boolean;
 };

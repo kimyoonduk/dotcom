@@ -2,16 +2,7 @@ import Link from "@/_components/link";
 import { ExtLink, Github } from "../icons";
 import IconLink from "../theme/icon-link";
 
-type Props = {
-  href: string;
-  title: string;
-  description: string;
-  role: string;
-  years: string[];
-  showYears: boolean;
-  stars?: number;
-  gitUrl?: string;
-};
+import type { Project } from "@/lib/types";
 
 const ProjectEntry = ({
   href,
@@ -22,14 +13,18 @@ const ProjectEntry = ({
   showYears = true,
   stars,
   gitUrl,
-}: Props) => {
-  const tags = ["temp"];
-
+  tech,
+}: Project) => {
   return (
-    <div className="card md:card-side bg-base-100 hover:bg-base-200 card-compact rounded-none">
+    <div className="card md:card-side bg-base-100 card-compact rounded-none">
       <div className="card-body">
         <h2 className="card-title">
-          {title}
+          <span className="">{title}</span>
+          {showYears && (
+            <span className="text-sm badge badge-outline badge-primary whitespace-nowrap mx-1">
+              {years[0]} {years[1] ? "-" : ""}
+            </span>
+          )}
           {href !== "" && (
             <IconLink iconComponent={<ExtLink size={18} />} href={href} />
           )}
@@ -38,17 +33,10 @@ const ProjectEntry = ({
           )}
         </h2>
         <div className="card-body">
-          {showYears && (
-            <span className="text-sm">
-              {years[0]} {years[1] ? "-" : ""} {years[1]}
-            </span>
-          )}
-        </div>
-        <div className="card-body">
-          {tags && ( // If tags exist, render them
+          {tech && ( // If tech exist, render them
             <div className="flex flex-row">
-              {tags.map((tag) => (
-                <span className="badge badge-outline badge-accent mr-2">
+              {tech.map((tag) => (
+                <span className="badge badge-outline badge-secondary whitespace-nowrap mr-2">
                   {tag}
                 </span>
               ))}

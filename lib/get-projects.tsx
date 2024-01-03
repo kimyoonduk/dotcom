@@ -8,15 +8,17 @@ const Projects: Project[] = [
     href: "",
     role: "Creator",
     years: ["2023", "present"],
+    tech: ["python"],
   },
   {
     title: "kimYoonDuk.com",
     description:
       "Personal website and MDX blog built with Next.js, Tailwind, and DaisyUI components.",
-    href: "https://kimyoonduk.com",
-    // gitUrl: "https://github.com/kimyoonduk/kimyoonduk.com",
+    href: "",
+    gitUrl: "https://github.com/kimyoonduk/kimyoonduk.com",
     role: "Creator",
     years: ["2023", "present"],
+    tech: ["nextjs", "typescript", "tailwind"],
   },
   {
     title: "YD's Sentiment Analysis Sandbox",

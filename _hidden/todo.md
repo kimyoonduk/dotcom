@@ -5,6 +5,7 @@
 - [ ] entry cards
   - blog
     - card should route to individual pages
+    - metadata and keywords
   - projects
     - aim for compactness and readability
     - use tags for tech stack?

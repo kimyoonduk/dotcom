@@ -34,7 +34,7 @@ export const Header = ({ render, home, links }: Props) => {
     </details>
   );
 
-  const title = <h1 className="text-xl font-bold px-3">kimYoonDuk</h1>;
+  const title = <h1 className="text-2xl font-bold pr-8">kimYoonDuk</h1>;
   const titleLink = home ? title : <Link href="/">{title}</Link>;
 
   const navCenter = (
@@ -43,7 +43,10 @@ export const Header = ({ render, home, links }: Props) => {
         {links.map((link) => {
           return (
             <li key={link.href} className="px-0.5">
-              <Link href={link.href} className="capitalize font-medium">
+              <Link
+                href={link.href}
+                className="capitalize font-medium text-base"
+              >
                 {link.label}
               </Link>
             </li>
@@ -74,8 +77,8 @@ export const Header = ({ render, home, links }: Props) => {
     return (
       <div>
         <nav className="py-2">
-          <div className="navbar max-w-main-content px-6 mx-auto">
-            <div className="navbar-start">
+          <div className="navbar max-w-main-content lg:pl-6 pr-6 mx-auto">
+            <div className="navbar-start lg:w-2/3">
               {dropdown}
               {titleLink}
               {navCenter}

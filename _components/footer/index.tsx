@@ -2,7 +2,7 @@ const BlogPostFooter = () => {
   return (
     <footer>
       <hr />
-      <p>kimyoonduk.com</p>
+      {/* kimyoonduk.com */}
     </footer>
   );
 };

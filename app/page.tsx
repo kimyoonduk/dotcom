@@ -15,7 +15,8 @@ export default function Home() {
       <Header render={true} home={true} links={links} />
       <div className="page-body">
         <div className="mb-4 pb-4 prose">
-          <p>hi</p>
+          <p>Thanks for visiting. Happy 2024 :)</p>
+          <p> - YD</p>
         </div>
         <div className="py-4">
           <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>

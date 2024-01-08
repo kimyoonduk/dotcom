@@ -2,7 +2,7 @@
 
 ## Styling
 
-- [ ] entry cards
+- [x] entry cards
   - blog
     - card should route to individual pages
     - metadata and keywords

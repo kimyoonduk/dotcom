@@ -6,3 +6,5 @@ export { default as Mail } from "./mail";
 export { default as Twitter } from "./twitter";
 export { default as Star } from "./star";
 export { default as ExtLink } from "./ext-link";
+export { default as ToggleOn } from "./toggle-on";
+export { default as ToggleOff } from "./toggle-off";

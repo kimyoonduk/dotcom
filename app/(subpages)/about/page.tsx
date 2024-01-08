@@ -10,9 +10,9 @@ const iconList = [
 ];
 
 const linkArray = (
-  <ul className="menu-horizontal menu-md px-0 py-2 md:px-0 md:py-0 md:menu md:mx-auto">
+  <ul className="menu-horizontal menu-md px-0 py-2 lg:px-0 lg:py-0 lg:menu lg:mx-auto">
     {iconList.map((iconObj) => (
-      <li key={iconObj.href} className="px-2 md:px-0.5 mx-auto pb-2">
+      <li key={iconObj.href} className="px-2 lg:px-0.5 mx-auto pb-2">
         <IconLink iconComponent={iconObj.icon} href={iconObj.href} />
       </li>
     ))}
@@ -31,10 +31,10 @@ const homepageRepoUrl = "https://github.com/kimyoonduk/kimyoonduk.com";
 
 const About = () => {
   return (
-    <div className="flex flex-col md:flex-row-reverse">
-      <div className="md:w-5/6 md:ml-auto px-2 prose">
+    <div className="flex flex-col lg:flex-row-reverse">
+      <div className="lg:w-11/12 lg:mr-auto pl-4 prose">
         <p>
-          I develop speech analytics systems for patients with neurodegenerative
+          I develop speech analytics systems for speakers with neurodegenerative
           disorders.
         </p>
         <p>
@@ -58,8 +58,8 @@ const About = () => {
           </Link>
         </p>
       </div>
-      <div className="w-1/2 md:w-1/6">
-        <div className="flex flex-col md:flex-row">{linkArray}</div>
+      <div className="w-1/2 md:w-1/3 lg:w-1/12">
+        <div className="flex flex-col lg:flex-row">{linkArray}</div>
       </div>
     </div>
   );

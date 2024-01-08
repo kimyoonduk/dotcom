@@ -59,7 +59,7 @@ const Posts = (props: Props) => {
           onClick={() => {
             setShowMore(showMore + 4);
           }}
-          className="mt-2 w-full cursor-pointer text-primary-content bg-primary border-none py-2 px-4 outline-none"
+          className="mt-2 w-full cursor-pointer text-base-content bg-base-300 border-none py-2 px-4 outline-none"
         >
           Show More
         </button>

@@ -2,22 +2,20 @@
 
 ## Styling
 
-- [x] entry cards
+- entry cards
   - blog
-    - card should route to individual pages
-    - metadata and keywords
-  - projects
+    - [x] card should route to individual pages
+    - [ ] metadata and keywords
+  - [x] projects
     - aim for compactness and readability
     - use tags for tech stack?
     - remove hover effects
-  - image section
+  - [ ] image section
     - figure out (ha) a better design
-- [ ] about page
-  - rewrite?
-  - styling for link menu
-- [ ] landing page
 - [ ] favicon
 - [ ] clean up commented and unused sections from components
+- [ ] footer
+- [ ] light/dark toggle
 
 ## Posts
 
@@ -28,7 +26,6 @@
 
 ## Deployment
 
-- [ ] github readme
 - [ ] vercel or aws
 - [ ] headless cms?
 
@@ -40,6 +37,11 @@
 
 ## Minor Stuff
 
-- [ ] update theme
-
 ## Done
+
+- [x] about page
+  - rewrite?
+  - styling for link menu
+- [x] landing page
+- [x] update theme
+- [x] github readme

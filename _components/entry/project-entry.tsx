@@ -16,7 +16,7 @@ const ProjectEntry = ({
   tech,
 }: Project) => {
   return (
-    <div className="card md:card-side bg-base-100 card-compact rounded-none">
+    <div className="card md:card-side bg-base-100 card-compact rounded-none hover:bg-base-200 py-4">
       <div className="card-body">
         <h2 className="card-title">
           <span className="">{title}</span>
@@ -32,7 +32,8 @@ const ProjectEntry = ({
             <IconLink iconComponent={<Github size={18} />} href={gitUrl} />
           )}
         </h2>
-        <div className="card-body">
+        <div className="prose">
+          <p>{description}</p>
           {tech && ( // If tech exist, render them
             <div className="flex flex-row">
               {tech.map((tag) => (
@@ -42,9 +43,6 @@ const ProjectEntry = ({
               ))}
             </div>
           )}
-        </div>
-        <div className="card-body">
-          <p>{description}</p>
         </div>
       </div>
     </div>

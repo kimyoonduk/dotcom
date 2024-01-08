@@ -4,37 +4,38 @@ const Projects: Project[] = [
   {
     title: "Speech Analysis Toolkit for Neurodegenerative Disorders",
     description:
-      "Tool for comprehensive linguistic analysis of acoustic, lexical, semantic, and syntactic dimensions in speech. Currently closed-source, with open-source python package planned for 2024.",
+      "Tool for comprehensive linguistic analysis of acoustic, lexical, semantic, and syntactic dimensions in speech of speakers with neurodegenerative disorders. Currently closed-source, with open-source package planned for 2024.",
     href: "",
     role: "Creator",
     years: ["2023", "present"],
-    tech: ["python"],
+    tech: ["python", "pytorch", "whisper", "spacy", "nltk"],
   },
   {
     title: "kimYoonDuk.com",
-    description:
-      "Personal website and MDX blog built with Next.js, Tailwind, and DaisyUI components.",
+    description: "Personal website and MDX blog.",
     href: "",
     gitUrl: "https://github.com/kimyoonduk/kimyoonduk.com",
     role: "Creator",
     years: ["2023", "present"],
-    tech: ["nextjs", "typescript", "tailwind"],
+    tech: ["typescript", "react", "nextjs", "tailwind"],
   },
   {
     title: "YD's Sentiment Analysis Sandbox",
     description:
-      "Web application for visualizing dictionary and heuristic-based sentiment analysis methods in real time. Built with Gatsby and D3.js.",
+      "Web application for visualizing dictionary and heuristic-based sentiment analysis methods in real time.",
     href: "https://ydnlp.com",
     role: "Creator",
     years: ["2021"],
+    tech: ["javascript", "react", "gatsby", "d3.js"],
   },
   {
     title: "Yoda Trip",
     description:
-      "A mobile app for travel itinerary recommendation. Applies Bayesian modeling and integer programming for optimization with hard constraints. Algorithm patented at KIPRIS.",
+      "A mobile app for travel itinerary recommendation. Applies Bayesian modeling and integer programming for optimization with hard constraints. Algorithm patented in South Korea.",
     href: "https://yodatrip.com",
     role: "Creator",
     years: ["2020"],
+    tech: ["python", "pytorch"],
   },
   {
     title: "TA Timer",
@@ -44,6 +45,7 @@ const Projects: Project[] = [
     gitUrl: "https://github.com/kimyoonduk/tatimer",
     role: "Creator",
     years: ["2016"],
+    tech: ["javascript"],
   },
 ];
 

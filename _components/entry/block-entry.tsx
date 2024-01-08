@@ -25,53 +25,55 @@ const BlockEntry = (props: Props) => {
   const { title, description, type, href, date, views, thumbnail, tags } =
     props;
   return (
-    <div className="card md:card-side bg-base-100 hover:bg-base-200 card-compact rounded-none">
-      <div className="card-body">
-        <h2 className="card-title">{title}</h2>
+    <Link href={href}>
+      <div className="card md:card-side bg-base-100 hover:bg-base-200 card-compact rounded-none group">
         <div className="card-body">
-          {date && (
-            <span className="">
-              {date.toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </span>
-          )}
-        </div>
-        <div className="card-body">
-          {tags && ( // If tags exist, render them
-            <div className="flex flex-row">
-              {tags.map((tag) => (
-                <span
-                  className="badge badge-outline badge-accent mr-2"
-                  key={tag}
-                >
-                  {tag}
-                </span>
-              ))}
+          <h2 className="card-title group-hover:text-primary">{title}</h2>
+          <div className="mb-2 prose">
+            <p>{description}</p>
+          </div>
+          <div className="flex flex-row">
+            <div className="pr-2 prose-sm">
+              {date && (
+                <p>
+                  {`${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(
+                    -2
+                  )}-${("0" + date.getDate()).slice(-2)}`}
+                </p>
+              )}
             </div>
-          )}
+            <div className="px-2">
+              {tags && ( // If tags exist, render them
+                <div className="flex flex-row">
+                  {tags.map((tag) => (
+                    <span
+                      className="badge badge-outline badge-secondary mr-2"
+                      key={tag}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="card-body">
-          <p>{description}</p>
-        </div>
+        {thumbnail && (
+          <div className="w-1/4 max-h-48 hidden md:flex">
+            <figure className="">
+              <Image
+                src={thumbnail}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: "auto", height: "100%" }}
+                alt=""
+              />
+            </figure>
+          </div>
+        )}
       </div>
-      {thumbnail && (
-        <div className="w-1/4 max-h-48 hidden md:flex">
-          <figure className="">
-            <Image
-              src={thumbnail}
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{ width: "auto", height: "100%" }}
-              alt=""
-            />
-          </figure>
-        </div>
-      )}
-    </div>
+    </Link>
   );
 };
 

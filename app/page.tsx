@@ -14,7 +14,7 @@ export default function Home() {
     <div className="">
       <Header render={true} home={true} links={links} />
       <div className="page-body">
-        <div className="mb-4 pb-4">
+        <div className="mb-4 pb-4 prose">
           <p>hi</p>
         </div>
         <div className="py-4">

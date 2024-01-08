@@ -32,7 +32,7 @@ const homepageRepoUrl = "https://github.com/kimyoonduk/kimyoonduk.com";
 const About = () => {
   return (
     <div className="flex flex-col md:flex-row-reverse">
-      <div className="md:w-5/6 md:ml-auto px-2">
+      <div className="md:w-5/6 md:ml-auto px-2 prose">
         <p>
           I develop speech analytics systems for patients with neurodegenerative
           disorders.
@@ -44,8 +44,7 @@ const About = () => {
         <p>
           Wrote an itinerary recommendation engine for a travel startup in
           Korea.
-        </p>
-        <p>
+          <br />
           <Link href="/contact" highlight={true}>
             Message me
           </Link>{" "}

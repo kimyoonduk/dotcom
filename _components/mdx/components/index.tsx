@@ -50,8 +50,6 @@ export const mdxComponents: MDXComponents = {
   },
   img: MDXImage as any,
   Image: NextImage as any,
-  ol: (props) => <ol className="list-decimal list-inside" {...props} />,
-
   // Note: MDXNote,
   //   icons
   // InfoIcon: Info,

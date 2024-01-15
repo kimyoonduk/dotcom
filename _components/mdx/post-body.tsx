@@ -1,6 +1,8 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { mdxComponents } from "./components";
 
 const PostBody = ({ children }: { children: string }) => {
@@ -21,7 +23,7 @@ const PostBody = ({ children }: { children: string }) => {
             //     },
             //   ],
           ],
-          // rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
+          rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings],
         },
       }}
       components={mdxComponents}

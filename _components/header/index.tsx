@@ -38,7 +38,7 @@ export const Header = ({ render, home, links }: Props) => {
   const titleLink = home ? title : <Link href="/">{title}</Link>;
 
   const navCenter = (
-    <div className="px-2 hidden lg:flex lg:w-96">
+    <div className="px-2 hidden lg:flex lg:w-72">
       <ul className="menu menu-horizontal px-1">
         {links.map((link) => {
           return (

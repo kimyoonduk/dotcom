@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       maxWidth: {
-        "main-content": "54rem",
+        "main-content": "52rem",
       },
     },
   },

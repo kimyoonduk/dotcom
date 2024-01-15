@@ -15,7 +15,7 @@ const config: Config = {
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: ["business", "bumblebee", "corporate"],
+    themes: ["business", "fantasy", "corporate", "cmyk"],
     darkTheme: "business",
     // lightTheme: "bumblebee",
   },

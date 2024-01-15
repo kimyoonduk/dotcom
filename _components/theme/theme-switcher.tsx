@@ -19,8 +19,7 @@ const ThemeSwitcher = ({
   const { theme: activeTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  const lightTheme = "corporate";
-  // const lightTheme = "bumblebee";
+  const lightTheme = "fantasy";
 
   useEffect(() => {
     setMounted(true);

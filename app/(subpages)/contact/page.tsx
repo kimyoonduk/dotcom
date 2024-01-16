@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 const Contact = () => {
-  const email = ["admin", "kimyoonduk.com"];
+  const email = ["ydkimblog", "gmail.com"];
   const [emailLink, setEmailLink] = useState("");
 
   useEffect(() => {

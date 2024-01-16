@@ -28,7 +28,7 @@ export const metadata = {
   },
 };
 
-const homepageRepoUrl = "https://github.com/kimyoonduk/dotcom";
+const homepageRepoUrl = "https://github.com/kimyoonduk/dotcom/tree/prod";
 
 const About = () => {
   return (

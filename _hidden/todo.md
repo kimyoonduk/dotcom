@@ -26,7 +26,6 @@
 
 ## Deployment
 
-- [ ] vercel or aws
 - [ ] headless cms?
 
 ## New Features
@@ -37,8 +36,12 @@
 
 ## Minor Stuff
 
+- [ ] test ci cd pipeline
+  - [ ] create pr for main -> prod
+
 ## Done
 
+- [x] vercel
 - [x] about page
   - rewrite?
   - styling for link menu

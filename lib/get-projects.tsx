@@ -14,7 +14,7 @@ const Projects: Project[] = [
     title: "kimYoonDuk.com",
     description: "Personal website and MDX blog.",
     href: "",
-    gitUrl: "https://github.com/kimyoonduk/dotcom",
+    gitUrl: "https://github.com/kimyoonduk/dotcom/tree/prod",
     role: "Creator",
     years: ["2023", "present"],
     tech: ["typescript", "react", "nextjs", "tailwind"],

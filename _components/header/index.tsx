@@ -1,7 +1,6 @@
 import { memo } from "react";
 import Link from "@/_components/link";
 import ThemeSwitcher from "../theme/theme-switcher";
-import IconLink from "../theme/icon-link";
 
 import { Menu, Github, Linkedin, Twitter, Mail } from "../icons";
 
@@ -67,7 +66,9 @@ export const Header = ({ render, home, links }: Props) => {
     <ul className="menu menu-horizontal menu-sm pr-4 hidden sm:flex">
       {iconList.map((iconObj) => (
         <li key={iconObj.href} className="px-0.5">
-          <IconLink iconComponent={iconObj.icon} href={iconObj.href} />
+          <Link href={iconObj.href} newTab={true}>
+            {iconObj.icon}
+          </Link>
         </li>
       ))}
     </ul>

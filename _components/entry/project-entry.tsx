@@ -1,6 +1,5 @@
 import Link from "@/_components/link";
 import { ExtLink, Github } from "../icons";
-import IconLink from "../theme/icon-link";
 
 import type { Project } from "@/lib/types";
 
@@ -26,10 +25,14 @@ const ProjectEntry = ({
             </span>
           )}
           {href !== "" && (
-            <IconLink iconComponent={<ExtLink size={18} />} href={href} />
+            <Link href={href} newTab={true}>
+              <ExtLink size={18} />
+            </Link>
           )}
           {gitUrl && (
-            <IconLink iconComponent={<Github size={18} />} href={gitUrl} />
+            <Link href={gitUrl} newTab={true}>
+              <Github size={18} />
+            </Link>
           )}
         </h2>
         <div className="prose">

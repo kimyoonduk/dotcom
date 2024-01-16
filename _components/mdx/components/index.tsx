@@ -30,7 +30,7 @@ export const mdxComponents: MDXComponents = {
   // destructure ref to bypass type error
   a: ({ children, ref, ...props }) => {
     return (
-      <Link {...props} href={props.href || ""} highlight={true}>
+      <Link {...props} href={props.href || ""} highlight={true} newTab={true}>
         {children}
       </Link>
     );

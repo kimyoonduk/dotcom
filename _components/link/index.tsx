@@ -10,6 +10,7 @@ type Props = LinkProps & {
   children: React.ReactNode;
   className?: string;
   highlight?: boolean;
+  newTab?: boolean;
   // tabIndex?: number
 };
 
@@ -22,15 +23,29 @@ const Link = ({
   className: classNameProp = "",
   title,
   highlight = false,
+  newTab = false,
   tabIndex = 0,
   ...props
 }: Props) => {
   const className = clsx(classNameProp, highlight && linkStyle);
 
-  return (
+  const linkComponent = newTab ? (
+    <NextLink
+      href={href}
+      title={title}
+      className={className}
+      {...props}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {children}
+    </NextLink>
+  ) : (
     <NextLink href={href} title={title} className={className} {...props}>
       {children}
     </NextLink>
   );
+
+  return linkComponent;
 };
 export default Link;

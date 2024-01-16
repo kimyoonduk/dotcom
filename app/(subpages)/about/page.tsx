@@ -1,5 +1,4 @@
 import { Github, Linkedin, Twitter, Mail } from "@/_components/icons";
-import IconLink from "@/_components/theme/icon-link";
 import Link from "@/_components/link";
 
 const iconList = [
@@ -13,7 +12,9 @@ const linkArray = (
   <ul className="menu-horizontal menu-md px-0 py-2 lg:px-0 lg:py-0 lg:menu lg:mx-auto">
     {iconList.map((iconObj) => (
       <li key={iconObj.href} className="px-2 lg:px-0.5 mx-auto pb-2">
-        <IconLink iconComponent={iconObj.icon} href={iconObj.href} />
+        <Link href={iconObj.href} newTab={true}>
+          {iconObj.icon}
+        </Link>
       </li>
     ))}
   </ul>

@@ -15,7 +15,7 @@ export default function Home() {
       <Header render={true} home={true} links={links} />
       <div className="page-body">
         <div className="mb-4 pb-4 prose w-max">
-          <p>[insert greeting here] Thanks for visiting. Happy 2024 :)</p>
+          <p>[insert greeting here] </p>
           <p> - YD</p>
         </div>
         <div className="py-4">

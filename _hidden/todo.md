@@ -2,27 +2,17 @@
 
 ## Styling
 
-- entry cards
-  - blog
-    - [x] card should route to individual pages
-    - [ ] metadata and keywords
-  - [x] projects
-    - aim for compactness and readability
-    - use tags for tech stack?
-    - remove hover effects
-  - [ ] image section
-    - figure out (ha) a better design
-- [ ] favicon
+- [ ] projects tag wraparound issue
+- [ ] post image section
 - [ ] clean up commented and unused sections from components
 - [ ] footer
-- [ ] light/dark toggle
+- [ ] more intuitive design for light/dark toggle icon
 
 ## Posts
 
-- [ ] finish up first post
-  - credit maxleiter.com and john-smilga
 - [ ] 2023 review
-- [ ] jot down ideas for new posts
+- [ ] data with intent
+- [ ] i robot review
 
 ## Deployment
 
@@ -36,9 +26,6 @@
 
 ## Minor Stuff
 
-- [ ] test ci cd pipeline
-  - [ ] create pr for main -> prod
-
 ## Done
 
 - [x] vercel
@@ -48,3 +35,15 @@
 - [x] landing page
 - [x] update theme
 - [x] github readme
+- [x] blog
+  - [x] card should route to individual pages
+  - [x] metadata and keywords
+- [x] projects
+  - aim for compactness and readability
+  - use tags for tech stack?
+  - remove hover effects
+- [x] finish up first post
+  - credit maxleiter.com and john-smilga
+- [x] test ci cd pipeline
+  - [x] create pr for main -> prod
+- [x] favicon

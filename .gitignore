@@ -40,3 +40,4 @@ kimyoondukdotcom.code-workspace
 **/.DS_Store
 app/about/page_temp.tsx
 .env
+in_progress/*

@@ -10,9 +10,9 @@ export async function PostListRSC({
   displayCount?: number;
 }) {
   const posts = await getPosts();
-  const validPosts: Post[] = posts.filter(
-    (post): post is Post => post !== null
-  );
+  const validPosts: Post[] = posts
+    .filter((post): post is Post => post !== null)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <PostsList

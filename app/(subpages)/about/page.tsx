@@ -54,7 +54,7 @@ const About = () => {
         <p className="mt-4">
           This website was built in Next.js with Tailwind, DaisyUI components,
           and icons from Feather and SVG Repo.{" "}
-          <Link href={homepageRepoUrl} highlight={true}>
+          <Link href={homepageRepoUrl} highlight={true} newTab={true}>
             More info here.
           </Link>
         </p>

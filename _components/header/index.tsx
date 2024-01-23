@@ -1,6 +1,7 @@
 import { memo } from "react";
 import Link from "@/_components/link";
 import ThemeSwitcher from "../theme/theme-switcher";
+import Dropdown from "./dropdown";
 
 import { Menu, Github, Linkedin, Twitter, Mail } from "../icons";
 
@@ -13,7 +14,12 @@ type Props = {
 export const Header = ({ render, home, links }: Props) => {
   const dropdown = (
     <details className="dropdown">
-      <summary tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+      <summary
+        tabIndex={0}
+        role="button"
+        className="btn btn-ghost lg:hidden"
+        id="header-menu"
+      >
         <Menu />
       </summary>
       <ul
@@ -22,7 +28,14 @@ export const Header = ({ render, home, links }: Props) => {
       >
         {links.map((link) => {
           return (
-            <li key={link.href}>
+            <li
+              key={link.href}
+              onClick={() =>
+                (
+                  document.querySelector("#header-menu") as HTMLDetailsElement
+                )?.click()
+              }
+            >
               <Link href={link.href} className="capitalize">
                 {link.label}
               </Link>
@@ -80,7 +93,7 @@ export const Header = ({ render, home, links }: Props) => {
         <nav className="py-2">
           <div className="navbar max-w-main-content lg:pl-6 pr-6 mx-auto">
             <div className="navbar-start lg:w-2/3">
-              {dropdown}
+              <Dropdown links={links} />
               {titleLink}
               {navCenter}
             </div>

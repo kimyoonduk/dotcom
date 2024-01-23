@@ -21,6 +21,12 @@ export default function RootLayout({
           const theme = document.documentElement.style.colorScheme
           document.documentElement.classList.add(theme)
         `}</Script> */}
+
+        <Script
+          async
+          src="https://yd-umami.vercel.app/script.js"
+          data-website-id="128cf261-ffab-40e2-a74d-3afca381374a"
+        ></Script>
         <ThemeProvider>
           <main className="">{children}</main>
         </ThemeProvider>

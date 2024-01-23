@@ -29,11 +29,21 @@ import { MDXImage } from "./mdx-image";
 export const mdxComponents: MDXComponents = {
   // destructure ref to bypass type error
   a: ({ children, ref, ...props }) => {
-    return (
-      <Link {...props} href={props.href || ""} highlight={true} newTab={true}>
-        {children}
-      </Link>
-    );
+    const href = props.href || "";
+
+    if (href.startsWith("https://")) {
+      return (
+        <Link {...props} href={href || ""} highlight={true} newTab={true}>
+          {children}
+        </Link>
+      );
+    } else {
+      return (
+        <Link {...props} href={href || ""} highlight={true}>
+          {children}
+        </Link>
+      );
+    }
   },
   pre: ({
     children,

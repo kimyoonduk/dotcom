@@ -5,7 +5,6 @@
 - [ ] projects tag wraparound issue
 - [ ] post image section
 - [ ] clean up commented and unused sections from components
-- [ ] footer
 - [ ] more intuitive design for light/dark toggle icon
 
 ## Posts
@@ -47,3 +46,5 @@
 - [x] test ci cd pipeline
   - [x] create pr for main -> prod
 - [x] favicon
+- [x] footer
+- [x] mobile dropdown menu should close when item is clicked

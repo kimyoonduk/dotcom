@@ -19,7 +19,6 @@
 
 ## New Features
 
-- [ ] web analytics: umami
 - [ ] RSS
 - [ ] twitter api integration?
 
@@ -48,3 +47,4 @@
 - [x] favicon
 - [x] footer
 - [x] mobile dropdown menu should close when item is clicked
+- [x] web analytics: umami

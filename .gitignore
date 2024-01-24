@@ -41,3 +41,4 @@ kimyoondukdotcom.code-workspace
 app/about/page_temp.tsx
 .env
 in_progress/*
+posts/_*

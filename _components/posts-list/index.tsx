@@ -39,7 +39,11 @@ const Posts = (props: Props) => {
           month: "numeric",
           day: "numeric",
           year: "numeric",
+          timeZone: "UTC",
         });
+
+        console.log(post.date);
+        console.log(date);
 
         return (
           <BlockEntry

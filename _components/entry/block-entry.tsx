@@ -26,13 +26,13 @@ const BlockEntry = (props: Props) => {
     props;
   return (
     <Link href={href}>
-      <div className="card md:card-side max-h-48 bg-base-100 hover:bg-base-200 card-compact rounded-none group py-4">
+      <div className="card md:card-side max-h-52 bg-base-100 hover:bg-base-200 card-compact rounded-none group py-4">
         <div className="card-body">
           <h2 className="card-title group-hover:text-primary">{title}</h2>
           <div className="mb-2 prose">
             <p>{description}</p>
           </div>
-          <div className="flex flex-row">
+          <div className="flex flex-col md:flex-row">
             <div className="pr-2 prose-sm">
               {date && (
                 <p>
@@ -42,12 +42,12 @@ const BlockEntry = (props: Props) => {
                 </p>
               )}
             </div>
-            <div className="px-2">
+            <div className="md:pt-0 md:px-2">
               {tags && ( // If tags exist, render them
-                <div className="flex flex-row">
+                <div className="flex flex-row flex-wrap">
                   {tags.map((tag) => (
                     <span
-                      className="badge badge-outline badge-secondary mr-2"
+                      className="badge badge-outline badge-secondary mr-2 mt-1 md:mt-0"
                       key={tag}
                     >
                       {tag}

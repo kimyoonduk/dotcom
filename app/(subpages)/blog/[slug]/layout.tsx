@@ -58,6 +58,7 @@ const BlogPostLayout = async ({
         month: "long",
         day: "numeric",
         year: "numeric",
+        timeZone: "UTC",
       })
     : null;
 
@@ -66,6 +67,7 @@ const BlogPostLayout = async ({
         month: "long",
         day: "numeric",
         year: "numeric",
+        timeZone: "UTC",
       })
     : null;
 

@@ -21,7 +21,7 @@ export default function Home() {
         <div className="py-4">
           <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>
           <Suspense fallback={<div>Loading...</div>}>
-            <PostListRSC paginate={true} displayCount={3} />
+            <PostListRSC paginate={true} displayCount={5} />
           </Suspense>
         </div>
       </div>

@@ -9,7 +9,7 @@ import { Post } from "./types";
 export const getPosts = cache(async () => {
   const posts = await fs.readdir("./posts/");
 
-  return Promise.all(
+  const postsWithMeta = await Promise.all(
     posts
       .filter((file) => path.extname(file) === ".mdx")
       .map(async (file) => {
@@ -24,6 +24,14 @@ export const getPosts = cache(async () => {
         return { ...data, body: content } as Post;
       })
   );
+
+  const filtered = postsWithMeta
+    .filter((post) => post !== null)
+    .sort((a, b) =>
+      a && b ? new Date(b.date).getTime() - new Date(a.date).getTime() : 0
+    ) as Post[];
+
+  return filtered;
 });
 
 export async function getPost(slug: string) {

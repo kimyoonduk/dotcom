@@ -1,6 +1,8 @@
-import BlogPostFooter from "@/_components/footer";
-import getPosts from "@/lib/get-posts";
 import { Metadata } from "next";
+
+import getPosts from "@/lib/get-posts";
+import BlogPostFooter from "@/_components/footer";
+import { FooterNavigation } from "./navigation";
 
 export const generateMetadata = async ({
   params,
@@ -22,6 +24,7 @@ export const generateMetadata = async ({
 
 async function getData({ slug }: { slug: string }) {
   const posts = await getPosts();
+  console.log(posts.map((p) => p?.slug));
   const postIndex = posts.findIndex((p) => p?.slug === slug);
 
   if (postIndex === -1) {
@@ -88,6 +91,10 @@ const BlogPostLayout = async ({
         </article>
       </div>
       <BlogPostFooter />
+      <FooterNavigation
+        previous={previous ?? undefined}
+        next={next ?? undefined}
+      />
     </div>
   );
 };

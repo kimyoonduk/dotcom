@@ -26,7 +26,7 @@ const BlockEntry = (props: Props) => {
     props;
   return (
     <Link href={href}>
-      <div className="card md:card-side max-h-56 md:max-h-48 bg-base-100 hover:bg-base-200 card-compact rounded-none group py-4">
+      <div className="card md:card-side max-h-60 md:max-h-48 bg-base-100 hover:bg-base-200 card-compact rounded-none group py-4">
         <div className="card-body">
           <h2 className="card-title group-hover:text-primary">{title}</h2>
           <div className="mb-2 prose">

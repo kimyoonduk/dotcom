@@ -1,0 +1,46 @@
+---
+title: Thoughts on the AI Device Hype
+date: 2024-01-22
+description: It's not a feature, just bad security
+slug: ai-device-hype
+tags: ['security', 'generative model', 'AI assistant']
+---
+
+## Will I let some human kid use my phone? 
+
+If not, why would I let some robot kid use it?
+
+"AI" has become the new buzzword to attract impulsive investors and starry-eyed enthusiasts. Products proclaiming to be the next ["iPhone of AI"](https://time.com/6553910/ai-device-rabbit-r1-humane/) are making headlines.
+
+I respect the hustle and the challenge to make cool novel things. Yet I'm not a fan of startups that rush to a trend, only to exit on behalf of some poor bagholders. Unfortunately, I think the AI devices on the news nowadays belong to the latter group.
+
+Devices that use cloud-based AI agents are marketing "bad security" as innovation. It's like attaching jet engines to a bike. Yes, I can reach my destination faster, but I'd prefer to do so in one piece.
+
+Their OS essentially gives the AI agent superuser permission for my apps. The issue is that the agent does not run on the device in my hand, but on a remote server. Suppose some random kid on the street has a proposition for you. He can clone your phone and get full access. Just send him a text and he will get the job done on your cloned phone. Order some pizza, send money to grandma, you name it. He says it's super safe because he doesn't know any of your passwords. Would you take the offer? 
+
+Call me paranoid, but I lock my phone for a reason. How do I know the AI agent isn't browsing my social media feed? What's to stop it from clicking on some shady ads? If I ask that my data be deleted, is it even possible to confirm that it's actually gone? 
+
+Let's be generous and assume this new startup is really solid, like, trust me bro. Still, consolidating all your access credentials onto a single point of failure at a remote location is terrible security practice. 
+
+
+## What I'd like to see from an AI device
+
+As a wise man once said, "With great power comes great responsibility." 
+
+We already have the means to make super-capable AI agents. Siri's only in its present nerfed state, not from lacking talent, but because Apple will be sued to oblivion without the appropriate security measures in place.
+
+Personally, I'd prefer the conversations with the AI agent on my device to be private. I also don't want an application to have unrestricted remote access to my phone. Lastly, I'd like my AI to be available regardless of cellular or Wi-Fi connectivity.
+
+Local model is the only solution I know of that addresses the above. The unfortunate reality of transformer-based language models is that performance is dependent on model size. At the time of writing, I've yet to see a local LLM that is both capable enough to be reliable and light enough to run on a smartphone. Meta's [Llama2](https://ai.meta.com/llama/) has quality on par with GPT 3.5, but its largest model takes around 140GB of space.[^1] A general-purpose LLM is sadly too big and too slow to work on a mobile device as of now. 
+
+It could be a fun exercise to design a hypothetical local AI assistant for a mobile device. My take would be a system of smaller, specialized components. Given the hardware constraints (specifically memory), it's imperative that the model size is manageably small. Microsoft's [Phi-2](https://www.microsoft.com/en-us/research/blog/phi-2-the-surprising-power-of-small-language-models/) is an example of a highly performant 2.7b language model trained on curated, high-quality datasets. The [AutoGen](https://microsoft.github.io/autogen/) framework demonstrates the potential of multi-agent systems in solving complex tasks with fine-tuned agents. 
+
+To take it further, each component may not even be a generative language model. While some people may want to befriend their AI assistant, I argue that its primary job is to convert a natural language command into a series of function calls. Under this reduced scope, a language model is an overkill. LLMs like GPT or Llama are trained on text for humans, made by humans. Focusing on the assistant role, we may reduce the initial interaction between the user and the assistant into three problems: 
+
+1. Mapping the continuous space of natural language to discrete, finite set of API calls 
+2. Extracting the arguments to pass to the corresponding function
+3. Converting the returned function output as natural language text for the user
+
+I have some more wonderful imaginary designs and code samples to write, but the margins are too small to fit them all. I'll reserve it for another post.
+
+[^1]: Full precision 70-billion parameter Llama2 Chat model. I could run the 8-bit quantized 70b model on my M1 Macbook with 64GB RAM at ~6 tokens per second. 

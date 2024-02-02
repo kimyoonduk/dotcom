@@ -1,0 +1,19 @@
+---
+title: Sometimes Less is More
+date: 2024-01-26
+description: Why waste time say lot word when few word do trick?
+slug: sometimes-less-is-more
+tags: ['machine learning', 'recommender systems', 'adam sandler']
+---
+
+A few years ago at a conference, I struck a conversation with someone who worked at a video rental shop in California. She was the director of the data science team. I'd watched a few movies there and was curious about the company's recent switch from [star ratings to thumbs](https://about.netflix.com/en/news/goodbye-stars-hello-thumbs). Why would they deliberately collect less data? Why take away options from users?
+
+She said, "The five-star ratings makes our viewers put on their film critic hats. We don't want Oscar predictions; we're just interested in what people would watch. Plenty of people choose an Adam Sandler movie over Citizen Kane. Thumbs up is better suited for our goal, which is to recommend films that users will enjoy."[^1] 
+
+I'm guilty of being a maximalist and often remind myself of this exchange when developing new models. Extraneous information is like the t-shirt handed out at an event. Just because it's free doesn't mean I should take it. For getting the job done, nothing beats lean, clean, well-defined data. If my intent is clear and the means are there, the best data is the one that directly addresses the problem. 
+
+For this reason, I'm wary about the trend of using generative AI as a general-purpose tool. LLMs are wonderful for natural language tasks, but their recommendations are very, very mid. Try asking ChatGPT for suggestions on travel destinations and prepare to be unimpressed. I doubt the issue will resolved with fine-tuning, [RAG](https://research.ibm.com/blog/retrieval-augmented-generation-RAG), or even larger foundational models, as banality is the goal. After all, autoregressive, decoder-only architecture is designed to produce the most likely series of tokens. It's disconcerting to see over-engineered LLM solutions overshadowing simple, traditional recommender systems. Output quality does not always correlate with input complexity.
+
+Anyway, this post exists because I recently watched Uncut Gems starring Adam Sandler and it was a banger. To be honest, I even like his "bad" movies. They're a solid way to recharge after organizing my free t-shirt collection. When it comes to conversations about the perils of artificial intelligence, many envision a Skynet-style robot uprising. I'm personally concerned about the more probable dystopian future where the same 20 films are recommended over and over again. 
+
+[^1]: Netflix later added a third, ["love this"](https://variety.com/2022/digital/news/netflix-two-thumbs-up-ratings-1235228641/) option. Perhaps binary response was one too few.

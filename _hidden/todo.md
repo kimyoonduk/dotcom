@@ -19,8 +19,9 @@
 
 ## New Features
 
-- [ ] RSS
+- [ ] RSS Feed
 - [ ] twitter api integration?
+- [ ] TorchCat post and project link (open source?)
 
 ## Minor Stuff
 

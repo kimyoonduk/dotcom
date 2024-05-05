@@ -2,6 +2,15 @@ import type { Project } from "./types";
 import { cache } from "react";
 const Projects: Project[] = [
   {
+    title: "TorchCat",
+    description:
+      "Interactive animation tool for dynamically visualizing PyTorch and Tensorflow tensor operations.",
+    href: "https://torchcat.com",
+    role: "Creator",
+    years: ["2024", "present"],
+    tech: ["typescript", "vite", "tensorflow.js", "framer-motion"],
+  },
+  {
     title: "Speech Analysis Toolkit for Neurodegenerative Disorders",
     description:
       "Tool for comprehensive linguistic analysis of acoustic, lexical, semantic, and syntactic dimensions in speech of speakers with neurodegenerative disorders. Currently closed-source, with open-source package planned for 2024.",

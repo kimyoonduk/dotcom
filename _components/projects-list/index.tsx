@@ -4,17 +4,17 @@ import ProjectEntry from "@/_components/entry/project-entry";
 import type { Project } from "@/lib/types";
 
 type Props = {
-  count: number;
   projects: Project[];
   showYears: boolean;
+  count?: number | undefined;
 };
 
 const ProjectList = ({
-  count = -1,
   projects = [],
   showYears = true,
+  count = -1,
 }: Props) => {
-  const sliced = projects.slice(0, count > 0 ? count : projects.length);
+  const sliced = projects.slice(0, count ?? projects.length);
   sliced.sort((a, b) => parseInt(b.years[0]) - parseInt(a.years[0]));
 
   return (

@@ -105,3 +105,5 @@ export const getProjects = cache(async (): Promise<Project[]> => {
 
   return withStars;
 });
+
+export default getProjects;

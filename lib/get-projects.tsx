@@ -8,7 +8,7 @@ const Projects: Project[] = [
     href: "https://torchcat.com",
     role: "Creator",
     years: ["2024", "present"],
-    tech: ["typescript", "vite", "tensorflow.js", "framer-motion"],
+    tech: ["vite", "tensorflow.js", "framer-motion"],
   },
   {
     title: "Speech Analysis Toolkit for Neurodegenerative Disorders",

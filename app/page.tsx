@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { PostListRSC } from "@/_components/posts-list/rsc";
+import { ProjectListRSC } from "@/_components/projects-list/rsc";
 
 import Header from "@/_components/header";
 
@@ -16,7 +17,12 @@ export default function Home() {
       <div className="page-body">
         <div className="mb-4 pb-4 prose w-max">
           <p>[insert greeting here] </p>
-          <p> - YD</p>
+        </div>
+        <div className="py-4">
+          <h2 className="text-2xl font-bold mb-4">Projects</h2>
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProjectListRSC displayCount={2} />
+          </Suspense>
         </div>
         <div className="py-4">
           <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>

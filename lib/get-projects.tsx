@@ -11,6 +11,16 @@ const Projects: Project[] = [
     tech: ["vite", "tensorflow.js", "framer-motion"],
   },
   {
+    title: "NYT Games Solver",
+    description:
+      "Algorithmic solvers for popular New York Times word games: Strands and Connections.",
+    href: "https://www.kimyoonduk.com/blog/nyt-strands-1",
+    gitUrl: "https://github.com/kimyoonduk/nyt-puzzle-solver",
+    role: "Creator",
+    years: ["2024", "present"],
+    tech: ["python", "word embeddings", "parallelization"],
+  },
+  {
     title: "Speech Analysis Toolkit for Neurodegenerative Disorders",
     description:
       "Tool for comprehensive linguistic analysis of acoustic, lexical, semantic, and syntactic dimensions in speech of speakers with neurodegenerative disorders. Currently closed-source, with open-source package planned for 2024.",

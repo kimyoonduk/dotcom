@@ -30,7 +30,7 @@ Here's what a typical game looks like for a human player:
 2. Submit guesses whenever a valid word is identified, with correct ones highlighted. 
 3. As more words are found, the game simplifies, narrowing the search space and clarifying the theme.
 
-We benefit from our inherent semantic knowledge, a capability that our robotic counterparts have arguably yet to develop.[^1] 
+We benefit from our inherent semantic knowledge, a capability that our robotic counterparts have arguably yet to fully develop.[^1] 
 Meanwhile, computers excel in making repetitive comparisons and working long hours. The algorithm will leverage these strengths.
 
 ## Defining the Problem
@@ -38,8 +38,8 @@ Meanwhile, computers excel in making repetitive comparisons and working long hou
 We begin by operationalizing the Strands puzzle into a computational model of inputs and outputs.
 
 Inputs include: 
-- a two-dimensional letter matrix of the game board
-- a lexicon of accepted words
+- A two-dimensional letter matrix of the game board
+- A lexicon of accepted words
 
 The output:
 - A valid solution comprised of paths - sequences of coordinates - that spell out words in the lexicon.
@@ -83,15 +83,15 @@ We can leverage this knowledge to reduce the initial task into a problem that is
 
 ## NYT Strands is a Set Cover Problem
 
-Consider a big old box of jigsaw puzzles. If some of the pieces form a complete set, how do we find them?
+Imagine a big old box of jigsaw puzzles. If we mix in a new puzzle set into the box, how do we get them back?
 
-Strands has a similar objective. Players must find combinations of word pieces that perfectly fit the rectangular game board.
+Strands has a similar objective. Given a collection of word pieces, players must find the combination that perfectly fits the rectangular game board.
 
-By precomputing all possible words on our game board, we can prepare the set of puzzle pieces in advance. 
+By precomputing all possible words on our game board, we can prepare the box of puzzle pieces in advance. 
 This puzzle can now be reduced into the [set cover problem](https://en.wikipedia.org/wiki/Set_cover_problem), a classical combinatorics question.
 
 Suppose we assign a number index for each square on our game board. Then each word can be represented as a set of integer indices.
-Thus, we can show that solving strands is roughly equivalent to finding a set cover whose components do not overlap.
+Thus, we can show that solving Strands is roughly equivalent to finding a set cover whose components do not overlap.
 
 <img src="/blog/nyt-strands-1/1_fruit_blocks.png" alt="Block implementation of example" width="400"/>
 
@@ -101,7 +101,7 @@ Thus, we can show that solving strands is roughly equivalent to finding a set co
 Reducing our puzzle to a known problem allows us to stand on the shoulders of giants from the past.
 Still, set cover is an [NP problem](https://en.wikipedia.org/wiki/NP-completeness) and it's challenging to find an efficient solution.[^2]
 
-When I was taking algorithms courses as aa student, "NP" used to feel like a death sentence.
+When I was taking algorithms courses as a student, "NP" used to feel like a death sentence.
 Deeming the task impractical, I'd take out a pencil and paper to write proofs instead of code.
 
 Later on I found that life's full of NP problems like Strands and that working on them is actually an exciting endeavor.

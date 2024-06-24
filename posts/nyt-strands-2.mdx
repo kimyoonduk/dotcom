@@ -1,0 +1,176 @@
+---
+title: Blind-Solving NYT Strands with Algorithms (Part II)
+date: 2024-06-23
+description: Combinatorial optimization for my favorite morning activity? Yes Please!
+slug: nyt-strands-2
+tags: ['discrete search', 'bitmask', 'tries', 'parallization']
+---
+
+[Note: This post is a work in progress.]
+
+## Chess, Doctor Strange, and NYT Word Games
+
+In [Part 1](/blog/nyt-strands-1), we explored how NYT Strands can be reduced into the [set cover problem]( https://en.wikipedia.org/wiki/Set_cover_problem), a notorious NP-complete challenge. A modest expansion of the game board can result in a [combinatorial explosion]( https://en.wikipedia.org/wiki/Combinatorial_explosion), drastically increasing the potential scenarios a player must consider.
+
+To conceptualize the problem-solving approach, imagine an upside-down tree. Each potential game move forms a branch, which then splits into further branches, creating an exponentially expanding network of possibilities. The objective is to navigate the tree from its root to the optimal leaf that yields the most fruitful (pun intended) outcome.
+
+[Image 1: Tree Data Structure]
+
+Navigating this massive tree is generally infeasible. Thus, it's crucial to strategically reduce the search space by assessing the value of each branch. Players might prune ineffective branches or prioritize ones promising greater rewards. In chess, engines like stockfish employ [alpha-beta pruning]( https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning) to exclude weaker options and enhance the decision-making process.
+
+A relevant example can be found in the MCU's Infinity War (2018), where Doctor Strange analyzes 14,000,605 futures to devise a plan to defeat Thanos. While the number may seem remarkable in cinematic terms, it is miniscule for a continuous space of interdependent actions involving multiple agents. For comparison, take the game of Go, where a mere three move sequence can generate over 46 million potential outcomes. Thus, we can infer that Doctor Strange must have a super-human ability for pruning decision trees.
+
+[Image 2: Dr Strange]
+
+Fortunately, a typical NYT Strands game is a lot easier than thwarting cosmic threats. In this post, I will describe how leveraging the idiosyncrasies of the Strands puzzle reduced the algorithm's runtime from 10 hours to 10 seconds.
+
+
+## Overview
+
+The algorithm is structured into three primary steps:
+1.	__Preprocess the inputs__ (game board and lexicon) to generate a set of puzzle pieces.
+2.	__Identify all valid 'covers'__—sets of puzzle pieces that cover the game board without overlap.
+3.	__Translate the puzzle pieces back into word paths__ and derive the solution.
+
+The initial step transforms the game into a set cover problem with overlap constraints. The second step, the core of the algorithm, undertakes an exhaustive search for all set covers and is the most time-consuming. The final step translates the search output into viable Strands solutions.
+
+
+## Step 1: Precomputing The “Puzzle Pieces”
+
+**Input**: A 6x8 2D grid of 48 characters, lexicon of approximately 200,000 words.
+
+**Output**: An array of coordinate sets representing "puzzle pieces" for all potential words on the board.
+
+### 1-1: Find All Valid Word Paths
+
+Identifying all valid word paths—a sequence of coordinates on the board—is a complex task due to its exponentially vast search space, albeit smaller than that of the entire puzzle.
+
+Words can originate from any point and proceed in one of eight possible directions (including diagonals). The theoretical upper bound for potential paths is calculated as _'48 \times 8^{48}'_ [^1].
+
+However, we can significantly narrow down this search space using a Trie. Trie is a tree-like data structure that organizes sequences for fast retrieval. Each node in the Trie represents a character from the input strings, and paths from the root to a leaf node form words. For instance, no word in the lexicon begins with "QJ-". The path ["Q", "J"] would be absent from the Trie, allowing us to dismiss such nonexistent prefixes early in the search.
+
+Here's how a Trie works for a sample lexicon of ["DOG", "DO", "DEW"]:
+
+```
+       D
+   O(*)  E 
+G(*)       W(*)
+```
+
+*The asterisk denotes a node that completes a word.*
+
+This Trie structure allows the algorithm to terminate paths early when they diverge from any real word prefix. With a lexicon of 200,000 words, the Trie consists of approximately 450,000 nodes.
+
+To further optimize, I filtered the lexicon based on two criteria:
+1. Words that exceed the letter count available on the board.
+2. Words containing adjacent letter pairs that are not present on the board.
+
+These simple methods reduced the applicable lexicon by 90%. With only 20,000 words remaining in the Trie, a depth-first search (DFS) from each letter on the grid discovered around 3,000 valid paths.
+
+The entire filtering process and Trie application takes approximately 0.4 seconds.
+
+### 1-2: Convert Word Paths to Coordinate Sets
+
+In tackling the set cover problem, the order of coordinates in a word path is irrelevant—what matters is the shape and positioning of the word on the board. "TIME" and "EMIT" can be considered the same piece, as long as the space they occupy are identical.
+
+I employ bitmasks to represent each puzzle piece. A bitmask is a binary number where each bit corresponds to a board position:
+
+[Image 3: GIF demonstrating flattening a 2D grid to a bitmask]
+
+In a 6x8 board, each puzzle piece can thus be depicted by a number up to _'2^{48}'_.
+
+This method allows for rapid comparisons and merges of sets. Rather than checking if coordinates in solution paths completely cover the 6x8 board, I simply verify if the union of all bitmasks equals _'2^{48} - 1'_, a binary number where all 48 bits are set to 1.
+
+To ensure I can reconstruct the word paths from the covers, I maintain a mapping from each bitmask back to the corresponding paths. Replacing paths with bitmasks reduced the number of necessary puzzle pieces by 15%, resulting in about 2,500 essential pieces to search in Step 2.
+
+By the end of Steps 1-1 and 1-2, all necessary puzzle pieces are in place to move forward with the algorithm's next phase.
+
+
+## Step 2: Exhaustive Search for All Candidate Solutions
+
+**Input**: An array of 48-bit bitmasks representing “puzzle pieces”, with a typical game averaging about 2500 bitmasks.
+
+**Output**: Sets of non-overlapping bitmask covers.
+
+Suppose I have _k_ puzzle pieces and a solution may comprise up to _s_ pieces. The decision tree would have _'O(k)'_ branches at each level with a depth of _s_. The upper bound for the search space would be expressed as: _'kC_s + kC_\{s-1\} + ... + kC_1'_, or _'O(k^s)'_.
+
+With _k_ equal to 2500 and solution size _s_ around 10, the search space remains impractically large for solving the game in ten minutes. As this was the most time-consuming part of the solver, I focused on strategies to reduce either _k_ or _s_.
+
+### 2-1: Pre-computing Compatible Bitmask Pairs (to reduce _k_)
+
+Observing the solutions from official NYT Strands games, we find that:
+1. Words do not overlap.
+2. Words do not cross each other.
+3. Words are not repeated.
+
+Using these insights, I can eliminate incompatible bitmask pairs in advance. I initiate a "valid pair matrix" of size k x k, preset with 1s. A bitmask cannot pair with itself, so the diagonals are set to 0.
+
+In rule 1, overlap is easily checked using an & operator between two bitmasks:
+```python
+if bm_i & bm_j:
+    valid[i][j] = valid[j][i] = False
+```
+
+Rule 2, concerning crossing paths, is trickier. I used Cramer's rule for linear equations to define two paths to intersect if their constituent segments have a pair of linear functions with one solution.
+
+For rule 3, referencing the bitmask-to-path mapping allows us to identify if bitmasks i and j represent the same word.
+
+Currently, generating the valid pair matrix takes approximately 0.9 seconds. I expect further optimizing the calculation for crossing paths could reduce this to about 0.4 seconds.
+
+The "valid pair matrix" helps us prune invalid combinations upfront. Each time we add a new bitmask to our potential solution set, we can take the intersection of the corresponding valid vectors to determine new candidate bitmasks.
+
+### 2-2: Tracking Visited Combinations (to reduce _k_)
+
+Unlike in Chess or Go, nodes in Strands' search space are independent. If we've already explored all combinations starting with [bitmask_i, bitmask_j], there's no need to explore [bitmask_j, bitmask_i] again. We maintain a set of visited subsets to track previously explored combinations.
+
+### 2-3: Utilizing "Spangrams" (to reduce both _k_ and _s_)
+
+Astute readers who are experienced with NYT Strands may have noticed that I've so far omitted an important component of the game: "Spangram". 
+1. Spangram is a word that embodies the theme of the puzzle (not important)
+2. Each game has at least one spangram (important)
+3. Spangram always touches the opposing sides of the board (very important).
+
+[Image 4: Spangram Example]
+
+The spangram is a game-changer because it can split the search into two independent zones, significantly reducing both k and s. For instance, a division might turn a computation of _'4^{10} \approx 1 million'_ into _'2^{5} + 2^{5} = 64'_.
+
+As spangrams must touch two opposing sides, they always divide the board into at least two zones. This can be proven with rule 2 in 2-1 above, which prevents paths from skipping over a spangram to another zone.
+
+A simplified implementation:
+```python
+all_bitmasks = get_bitmasks(board, lexicon)
+solutions = []
+
+for spangram in sorted(spangram_list, key=lambda s: zone_size(s)):
+    zone_list = find_zones(spangram, board)
+    bitmasks_by_zone = [allocate_bitmasks(zone, all_bitmasks) for zone in zone_list]
+    zone_solution_list = []
+
+    for zone, bitmask_list in zip(zone_list, bitmask_list):
+        zone_solution = find_solution(zone, bitmask_list)
+        if zone_solution:
+            zone_solution_list.append(zone_solution)
+        else:
+            break  # zone invalid, move to next spangram
+
+    solutions.append(permute(zone_solution_list))
+```
+
+### 2-4: Parallelization
+
+Spangrams unlock new opportunities for parallelization. Since the solution has at least one spangram, each spangram functions as a root node of its respective decision tree. Additionally, zones created by spangrams can also be searched in parallel. The runtime of a fully parallelized algorithm would be _'max\_\{all zones z for all spangrams\}(runtime_z)'_.
+
+Furthermore, even the search within each individual zones may be parallelized, provided that the information on visited subsets can updated and read without race conditions.[^2]
+
+
+## Step 3: Derive Solution from Set Cover
+
+## Results and Edge Cases
+
+## Discussion
+
+[Coming soon!]
+
+[^1]: Math notations are not rendering correctly as of now (06-23-2024) due to a conflict with Next.js's SSR and remark's TeX plugin. This should be fixed in the near future.
+
+[^2]: The current implementation on github does not employ parallelization (not counting numpy matrix operations). The current iterative solution is optimized for finding the first solution by sorting on zone sizes. I expect parallelization to have the greatest potential for time saves, especially for long-tail games with large zones.

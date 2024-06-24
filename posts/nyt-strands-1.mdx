@@ -1,7 +1,7 @@
 ---
 title: Blind-Solving NYT Strands with Algorithms (Part I)
 date: 2024-06-03
-description: 
+description: I unabashedly claim the world record as the sole entrant of the automated solve category. 
 slug: nyt-strands-1
 tags: ['nyt', 'game', 'strands', 'algorithms', 'set cover']
 ---
@@ -17,7 +17,7 @@ Solve the puzzles without any direct interaction with the game board or knowledg
 The algorithm uses the game grid and a list of accepted words to derive solutions.
 In backtesting, the algorithm successfully solved 88 out of 91 puzzles published since March 4th, 2024, averaging 9.73 seconds to find a solution. 
 
-This post outlines the problem definition and formulation. Part 2 (coming soon) will describe the specific implementation details. The algorithm is available in a public github repo [here](https://github.com/kimyoonduk/nyt-puzzle-solver).
+This post outlines the problem definition and formulation. [Part 2](/blog/nyt-strands-2) will describe the specific implementation details. The algorithm is available in a public github repo [here](https://github.com/kimyoonduk/nyt-puzzle-solver).
 
 ## The Rules of the Game
 At a glance, a Strands board looks like the word search games found on an IHOP menu — a rectangular grid of jumbled alphabet characters. 
@@ -98,7 +98,7 @@ Thus, we can show that solving Strands is roughly equivalent to finding a set co
 
 ## The Devil's in the Details
 
-Reducing our puzzle to a known problem allows us to stand on the shoulders of giants from the past.
+Reducing our puzzle to a known problem allows us to stand on the shoulders of giants.
 Still, set cover is an [NP problem](https://en.wikipedia.org/wiki/NP-completeness) and it's challenging to find an efficient solution.[^2]
 
 When I was taking algorithms courses as a student, "NP" used to feel like a death sentence.
@@ -107,7 +107,7 @@ Deeming the task impractical, I'd take out a pencil and paper to write proofs in
 Later on I found that life's full of NP problems like Strands and that working on them is actually an exciting endeavor.
 NP lies on the fringes of feasibility, meaning that each implementation decision has the power to make or break your algorithm.
 
-In Part 2, I will detail the optimization tactics I employed to improve the runtime from 10 hours to 10 seconds.[^3] 
+In [Part 2](/blog/nyt-strands-2), I will detail the optimization tactics I employed to improve the runtime from 10 hours to 10 seconds.[^3] 
 
 In the meantime, [the algorithm](https://github.com/kimyoonduk/nyt-puzzle-solver) still has significant room for improvement. Suggestions, forks, and pull requests are always welcome. 
 
